@@ -1,0 +1,19 @@
+#header {
+    -fx-background-color : #235892;
+}
+
+.button
+{
+    -fx-background-color : #235892;
+    -fx-background-radius: 0;
+}
+
+.button:hover
+{
+    -fx-background-color : #A1C1F4 ;
+}
+
+.button:pressed
+{
+    -fx-background-color : #73A3EF ;
+}
