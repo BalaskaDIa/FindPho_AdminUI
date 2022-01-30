@@ -112,7 +112,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.findpho_adminui/com.example.findpho_adminui.HelloApplication
+                            <mainClass>com.example.findpho_adminui/com.example.findpho_adminui.FindphoApplication
                             </mainClass>
                         </configuration>
                     </execution>

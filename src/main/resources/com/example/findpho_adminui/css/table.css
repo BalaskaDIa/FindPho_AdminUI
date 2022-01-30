@@ -1,0 +1,13 @@
+.table-view .column-header,
+.table-view .column-header-background .filler
+{
+    -fx-cell-size: 20;
+    -fx-background-color: #235892;
+}
+
+.table-view .column-header .label
+{
+    -fx-text-fill: gainsboro;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+}
