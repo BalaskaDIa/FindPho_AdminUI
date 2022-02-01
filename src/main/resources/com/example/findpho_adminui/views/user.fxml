@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.findpho_adminui.Users">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.findpho_adminui.controllers.UserController">
     <children>
         <Pane fx:id="header" minHeight="150.0" minWidth="900.0" stylesheets="@../css/style.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -26,32 +26,32 @@
                     </font>
                 </Label>
             </children></Pane>
-      <TableView layoutX="23.0" layoutY="169.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/table.css" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="288.0" AnchorPane.topAnchor="169.0">
+      <TableView fx:id="userTable" layoutX="23.0" layoutY="169.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/table.css" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="288.0" AnchorPane.topAnchor="169.0">
         <columns>
-          <TableColumn prefWidth="50.0" text="Id" />
-          <TableColumn prefWidth="150.0" text="Username" />
-            <TableColumn prefWidth="120.0" text="First name" />
-            <TableColumn prefWidth="120.0" text="Last name" />
-            <TableColumn prefWidth="157.5999755859375" text="Email" />
+          <TableColumn fx:id="idCol" prefWidth="50.0" text="Id" />
+          <TableColumn fx:id="usernameCol" prefWidth="150.0" text="Username" />
+            <TableColumn fx:id="firstCol" prefWidth="120.0" text="First name" />
+            <TableColumn fx:id="lastCol" prefWidth="120.0" text="Last name" />
+            <TableColumn fx:id="emailCol" prefWidth="157.5999755859375" text="Email" />
         </columns>
       </TableView>
       <TextField fx:id="txt_Search" layoutX="639.0" layoutY="169.0" prefHeight="25.0" prefWidth="250.0" stylesheets="@../css/style.css" AnchorPane.rightAnchor="10.599999999999994" />
-      <Button layoutX="639.0" layoutY="205.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" text="Search" textFill="GAINSBORO" AnchorPane.rightAnchor="10.599999999999994">
+      <Button fx:id="btn_search" layoutX="639.0" layoutY="205.0" mnemonicParsing="false" onAction="#btn_search" prefHeight="30.0" prefWidth="250.0" text="Search" textFill="GAINSBORO" AnchorPane.rightAnchor="10.599999999999994">
          <font>
             <Font name="Century Gothic Bold" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="639.0" layoutY="537.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" text="Delete" textFill="GAINSBORO" AnchorPane.bottomAnchor="32.6" AnchorPane.rightAnchor="10.600000000000023">
+      <Button fx:id="btn_delete" layoutX="639.0" layoutY="537.0" mnemonicParsing="false" onAction="#btn_delete" prefHeight="30.0" prefWidth="250.0" text="Delete" textFill="GAINSBORO" AnchorPane.bottomAnchor="32.6" AnchorPane.rightAnchor="10.600000000000023">
          <font>
             <Font name="Century Gothic Bold" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="639.0" layoutY="330.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" text="Edit" textFill="GAINSBORO" AnchorPane.rightAnchor="10.599999999999994">
+      <Button fx:id="btn_edit" layoutX="639.0" layoutY="330.0" mnemonicParsing="false" onAction="#btn_edit" prefHeight="30.0" prefWidth="250.0" text="Edit" textFill="GAINSBORO" AnchorPane.rightAnchor="10.599999999999994">
          <font>
             <Font name="Century Gothic Bold" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="639.0" layoutY="370.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" text="Add a new one" textFill="GAINSBORO" AnchorPane.rightAnchor="10.600000000000023">
+      <Button fx:id="btn_add" layoutX="639.0" layoutY="370.0" mnemonicParsing="false" onAction="#btn_add" prefHeight="30.0" prefWidth="250.0" text="Add a new one" textFill="GAINSBORO" AnchorPane.rightAnchor="10.600000000000023">
          <font>
             <Font name="Century Gothic Bold" size="14.0" />
          </font>

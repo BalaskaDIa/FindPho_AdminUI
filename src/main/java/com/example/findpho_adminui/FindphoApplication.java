@@ -10,7 +10,7 @@ import java.io.IOException;
 public class FindphoApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(FindphoApplication.class.getResource("views/home.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(FindphoApplication.class.getResource("views/user.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 900, 650);
         stage.setTitle("FindPho");
         stage.setMinHeight(600);

@@ -1,4 +1,5 @@
-#header {
+#header
+{
     -fx-background-color : #235892;
 }
 
@@ -16,4 +17,15 @@
 .button:pressed
 {
     -fx-background-color : #73A3EF ;
+}
+
+#txt_Search
+{
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-border-width: 0px 5px 2px 0px;
+    -fx-border-color: #235892;
+    -fx-text-fill: black;
+    -fx-font-family: Tahoma;
 }
