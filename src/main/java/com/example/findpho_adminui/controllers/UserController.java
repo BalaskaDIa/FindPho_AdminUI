@@ -20,7 +20,7 @@ public class UserController extends Controller {
     private Button btn_search;
 
     @javafx.fxml.FXML
-    private TableColumn usernameCol;
+    private TableColumn /*<User,String> --- Balázs mondta majd megoldom*/ usernameCol;
 
     @javafx.fxml.FXML
     private Button btn_add;

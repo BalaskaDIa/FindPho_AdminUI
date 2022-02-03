@@ -7,13 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="HelloController" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.findpho_adminui.controllers.MainController">
+<AnchorPane fx:id="mainAnchor" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.findpho_adminui.controllers.MainController">
    <children>
-      <Pane fx:id="header" minHeight="150.0" minWidth="900.0" stylesheets="@../css/style.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane fx:id="header" minHeight="150.0" minWidth="900.0" prefHeight="150.0" prefWidth="910.0" stylesheets="@../css/style.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="73.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -30,7 +31,8 @@
                   <Font name="Century Gothic" size="18.0" />
                </font>
             </Label>
-         </children></Pane>
+         </children>
+      </Pane>
       <GridPane alignment="CENTER" hgap="10.0" layoutX="130.0" layoutY="229.0" minHeight="300.0" minWidth="650.0" vgap="10.0" AnchorPane.bottomAnchor="71.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="229.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="217.0" prefWidth="217.0" />
@@ -116,5 +118,36 @@
             </Button>
          </children>
       </GridPane>
+      <HBox alignment="TOP_RIGHT" layoutX="700.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.rightAnchor="10.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#btn_minWindow">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/minimize.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#btn_maxWindow">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/maximize.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#btn_closeWindow">
+               <graphic>
+                  <ImageView fx:id="closeStage" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/close.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
