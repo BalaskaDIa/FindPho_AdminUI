@@ -5,12 +5,16 @@ import com.example.findpho_adminui.FindPhoDB;
 import com.example.findpho_adminui.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import javafx.scene.input.MouseEvent;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -20,7 +24,7 @@ public class UserController extends Controller {
     private Button btn_search;
 
     @javafx.fxml.FXML
-    private TableColumn /*<User,String> --- Balázs mondta majd megoldom*/ usernameCol;
+    private TableColumn /*<User,String> --- Balázs mondta, majd megoldom*/ usernameCol;
 
     @javafx.fxml.FXML
     private Button btn_add;
@@ -37,8 +41,8 @@ public class UserController extends Controller {
     @javafx.fxml.FXML
     private Button btn_edit;
 
-    @javafx.fxml.FXML
-    private Pane header;
+    @FXML
+    private Pane Pane;
 
     @javafx.fxml.FXML
     private TableColumn emailCol;
@@ -52,7 +56,17 @@ public class UserController extends Controller {
     @javafx.fxml.FXML
     private TableView<User> userTable;
 
+    @FXML
+    private AnchorPane mainAnchor;
+
     private FindPhoDB db;
+
+    private boolean fullscreen;
+
+    private Stage stage;
+    private Scene scene;
+
+    private double x, y = 0;
 
     public void initialize() {
         usernameCol.setCellValueFactory(new PropertyValueFactory<>("username"));
@@ -93,5 +107,30 @@ public class UserController extends Controller {
 
     @javafx.fxml.FXML
     public void btn_delete(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void btn_minWindow(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void btn_closeWindow(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void btn_maxWindow(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void dragPane(MouseEvent event) {
+        Stage stage = (Stage)Pane.getScene().getWindow();
+        stage.setX(event.getScreenX() - x);
+        stage.setY(event.getScreenY() - y);
+    }
+
+    @FXML
+    public void pressPane(MouseEvent event) {
+        x = event.getSceneX();
+        y = event.getSceneY();
     }
 }

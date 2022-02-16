@@ -14,7 +14,7 @@
 
 <AnchorPane fx:id="mainAnchor" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.findpho_adminui.controllers.MainController">
    <children>
-      <Pane fx:id="header" minHeight="150.0" minWidth="900.0" prefHeight="150.0" prefWidth="910.0" stylesheets="@../css/style.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane fx:id="Pane" minHeight="150.0" minWidth="900.0" onMouseDragged="#dragPane" onMousePressed="#pressPane" prefHeight="150.0" prefWidth="910.0" stylesheets="@../css/style.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="73.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -80,7 +80,7 @@
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="btn_Users" alignment="CENTER" contentDisplay="TOP" maxHeight="200.0" maxWidth="300.0" minHeight="150.0" minWidth="217.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="217.0" stylesheets="@../css/style.css" text="Users" textFill="GAINSBORO" GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
+            <Button fx:id="btn_Users" alignment="CENTER" contentDisplay="TOP" maxHeight="200.0" maxWidth="300.0" minHeight="150.0" minWidth="217.0" mnemonicParsing="false" onAction="#btn_Users" prefHeight="150.0" prefWidth="217.0" stylesheets="@../css/style.css" text="Users" textFill="GAINSBORO" GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -120,7 +120,7 @@
       </GridPane>
       <HBox alignment="TOP_RIGHT" layoutX="700.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.rightAnchor="10.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#btn_minWindow">
+            <Button mnemonicParsing="false" onAction="#btn_minWindow" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -129,7 +129,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" onAction="#btn_maxWindow">
+            <Button mnemonicParsing="false" onAction="#btn_maxWindow" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -138,7 +138,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" onAction="#btn_closeWindow">
+            <Button mnemonicParsing="false" onAction="#btn_closeWindow" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fx:id="closeStage" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
