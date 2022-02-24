@@ -14,7 +14,7 @@ public class FindphoApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(FindphoApplication.class.getResource("views/home.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(FindphoApplication.class.getResource("views/main-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 900, 650);
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setTitle("FindPho");

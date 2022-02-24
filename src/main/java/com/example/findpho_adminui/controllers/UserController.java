@@ -61,8 +61,6 @@ public class UserController extends Controller {
 
     private FindPhoDB db;
 
-    private boolean fullscreen;
-
     private Stage stage;
     private Scene scene;
 
@@ -111,14 +109,19 @@ public class UserController extends Controller {
 
     @FXML
     public void btn_minWindow(ActionEvent actionEvent) {
+        stage = (Stage) mainAnchor.getScene().getWindow();
+        this.minimizeWindow(stage);
     }
 
     @FXML
     public void btn_closeWindow(ActionEvent actionEvent) {
+        Controller.closeWindow(actionEvent);
     }
 
     @FXML
     public void btn_maxWindow(ActionEvent actionEvent) {
+        stage = (Stage) mainAnchor.getScene().getWindow();
+        this.maximizeWindowToggle(stage);
     }
 
     @FXML

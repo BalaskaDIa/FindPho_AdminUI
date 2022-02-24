@@ -1,22 +1,26 @@
-#Pane
+#pane
 {
-    -fx-background-color : #235892;
+    -fx-background-color: #19406B;
+}
+
+#sideBar {
+    -fx-background-color: #235892;
 }
 
 .button
 {
-    -fx-background-color : #235892;
+    -fx-background-color : #19406B;
     -fx-background-radius: 0;
 }
 
 .button:hover
 {
-    -fx-background-color : #A1C1F4 ;
+    -fx-background-color : #235892;
 }
 
 .button:pressed
 {
-    -fx-background-color : #73A3EF ;
+    -fx-background-color : #73A3EF;
 }
 
 #txt_Search

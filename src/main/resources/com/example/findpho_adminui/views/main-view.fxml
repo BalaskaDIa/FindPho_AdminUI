@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainAnchor" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.findpho_adminui.controllers.MainController">
+    <children>
+        <AnchorPane fx:id="sideBar" prefHeight="600.0" prefWidth="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <VBox layoutY="157.0" prefHeight="150.0" prefWidth="50.0" AnchorPane.topAnchor="157.0">
+                    <children>
+                        <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#btn_Home" prefHeight="40.0" prefWidth="60.0" style="-fx-background-color: transparent;" stylesheets="@../css/style.css" text="Home" textFill="WHITE">
+                            <graphic>
+                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../icons/home.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <font>
+                                <Font name="Century Gothic Bold" size="10.0" />
+                            </font>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent;" stylesheets="@../css/style.css" text="Settings" textFill="WHITE">
+                            <font>
+                                <Font name="Century Gothic Bold" size="10.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../icons/settings.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent;" stylesheets="@../css/style.css" text="Exit" textFill="WHITE">
+                            <font>
+                                <Font name="Century Gothic Bold" size="10.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../icons/exit-sign.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+        <Pane fx:id="pane" minHeight="150.0" minWidth="900.0" onMouseDragged="#dragPane" onMousePressed="#pressPane" prefHeight="150.0" prefWidth="910.0" stylesheets="@../css/style.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="73.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../icons/camera.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="185.0" layoutY="33.0" text="FindPho" textFill="WHITE">
+                    <font>
+                        <Font name="Century Gothic" size="64.0" />
+                    </font>
+                </Label>
+                <Label layoutX="222.0" layoutY="106.0" text="Administration System" textFill="WHITE">
+                    <font>
+                        <Font name="Century Gothic" size="18.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <HBox alignment="TOP_RIGHT" layoutX="700.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.rightAnchor="10.0">
+            <children>
+                <Button mnemonicParsing="false" onAction="#btn_minWindow" style="-fx-background-color: transparent;">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icons/minimize.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#btn_maxWindow" style="-fx-background-color: transparent;">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icons/maximize.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#btn_closeWindow" style="-fx-background-color: transparent;">
+                    <graphic>
+                        <ImageView fx:id="closeStage" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icons/close.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </HBox>
+      <BorderPane fx:id="contentArea" layoutX="53.0" layoutY="150.0" prefHeight="450.0" prefWidth="850.0" />
+
+    </children>
+</AnchorPane>

@@ -11,6 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.w3c.dom.events.MouseEvent;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -115,7 +116,7 @@ public class Controller {
         }
     }
 
-    protected void minimizeWindowToggle(Stage stage) {
+    protected void minimizeWindow(Stage stage) {
         stage.setIconified(true);
     }
 }
