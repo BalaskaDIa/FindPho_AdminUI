@@ -1,4 +1,4 @@
-package com.example.findpho_adminui.controllers;
+package com.example.findpho_adminui;
 
 import com.example.findpho_adminui.Controller;
 import javafx.event.ActionEvent;
@@ -89,5 +89,13 @@ public class MainController extends Controller {
     @FXML
     public void btn_closeWindow(ActionEvent actionEvent) {
         Controller.closeWindow(actionEvent);
+    }
+
+    @FXML
+    public void btn_Logout(ActionEvent actionEvent) { Controller.closeWindow(actionEvent); }
+
+    @FXML
+    public void btn_Settings(ActionEvent actionEvent) throws IOException {
+        changeStage("views/settings-view.fxml");
     }
 }
