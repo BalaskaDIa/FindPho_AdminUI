@@ -98,7 +98,7 @@
                 </Button>
                 <Button mnemonicParsing="false" onAction="#btn_closeWindow" style="-fx-background-color: transparent;">
                     <graphic>
-                        <ImageView fx:id="closeStage" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../icons/close.png" />
                             </image>

@@ -20,7 +20,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class UserController extends Controller {
-    @javafx.fxml.FXML
+    @FXML
     private Button btn_search;
 
     @javafx.fxml.FXML
@@ -41,9 +41,6 @@ public class UserController extends Controller {
     @javafx.fxml.FXML
     private Button btn_edit;
 
-    @FXML
-    private Pane Pane;
-
     @javafx.fxml.FXML
     private TableColumn emailCol;
 
@@ -62,9 +59,12 @@ public class UserController extends Controller {
     private FindPhoDB db;
 
     private Stage stage;
+
     private Scene scene;
 
     private double x, y = 0;
+    @FXML
+    private Pane pane;
 
     public void initialize() {
         usernameCol.setCellValueFactory(new PropertyValueFactory<>("username"));
@@ -118,20 +118,20 @@ public class UserController extends Controller {
         Controller.closeWindow(actionEvent);
     }
 
-    @FXML
+    @Deprecated
     public void btn_maxWindow(ActionEvent actionEvent) {
         stage = (Stage) mainAnchor.getScene().getWindow();
         this.maximizeWindowToggle(stage);
     }
 
-    @FXML
+    @Deprecated
     public void dragPane(MouseEvent event) {
-        Stage stage = (Stage)Pane.getScene().getWindow();
+        Stage stage = (Stage)pane.getScene().getWindow();
         stage.setX(event.getScreenX() - x);
         stage.setY(event.getScreenY() - y);
     }
 
-    @FXML
+    @Deprecated
     public void pressPane(MouseEvent event) {
         x = event.getSceneX();
         y = event.getSceneY();

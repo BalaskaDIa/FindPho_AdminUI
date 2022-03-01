@@ -31,8 +31,7 @@ public class MainController extends Controller {
     private Stage stage;
 
     private double x, y = 0;
-    @FXML
-    private ImageView closeStage;
+
     @FXML
     private AnchorPane sideBar;
 
@@ -41,9 +40,9 @@ public class MainController extends Controller {
     }
 
     @Deprecated
-    public void btn_Users(ActionEvent actionEvent) {
+    public void btn_Users(ActionEvent actionEvent) throws IOException {
         try {
-            Controller hozzaadas = newWindow("views/user.fxml", "Users",
+            Controller hozzaadas = newWindow("views/user-view.fxml", "Users",
                     900, 650);
             hozzaadas.getStage().show();
         } catch (Exception e) {

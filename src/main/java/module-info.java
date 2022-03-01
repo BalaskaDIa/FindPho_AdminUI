@@ -10,6 +10,7 @@ module com.example.findpho_adminui {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires java.sql;
+    requires com.google.gson;
 
     opens com.example.findpho_adminui to javafx.fxml;
     exports com.example.findpho_adminui;

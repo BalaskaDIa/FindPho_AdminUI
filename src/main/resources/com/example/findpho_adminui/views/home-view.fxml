@@ -9,55 +9,56 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="450.0" minWidth="850.0" prefHeight="450.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.findpho_adminui.controllers.HomeController">
+
+<AnchorPane fx:id="contentHome" minHeight="450.0" minWidth="850.0" prefHeight="450.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.findpho_adminui.controllers.HomeController">
    <children>
-<GridPane alignment="CENTER" hgap="10.0" layoutX="100.0" layoutY="75.0" minHeight="300.0" minWidth="650.0" prefHeight="300.0" prefWidth="579.0" vgap="10.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="99.60000000000002" AnchorPane.topAnchor="75.0">
-    <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="217.0" prefWidth="217.0" />
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="217.0" prefWidth="217.0" />
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="217.0" prefWidth="217.0" />
-    </columnConstraints>
-    <rowConstraints>
-        <RowConstraints maxHeight="300.0" minHeight="150.0" prefHeight="150.0" vgrow="SOMETIMES" />
-    </rowConstraints>
-    <children>
-        <Button alignment="CENTER" contentDisplay="TOP" maxHeight="200.0" maxWidth="300.0" minHeight="150.0" minWidth="217.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="217.0" stylesheets="@../css/style.css" text="Catalog" textFill="WHITE" GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
-            <graphic>
-                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
+      <GridPane alignment="CENTER" hgap="10.0" minHeight="300.0" minWidth="650.0" prefHeight="300.0" prefWidth="579.0" vgap="10.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="99.60000000000002" AnchorPane.topAnchor="75.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="217.0" prefWidth="217.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="217.0" prefWidth="217.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="217.0" prefWidth="217.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="300.0" minHeight="150.0" prefHeight="150.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Button alignment="CENTER" contentDisplay="TOP" maxHeight="200.0" maxWidth="300.0" minHeight="150.0" minWidth="217.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="217.0" stylesheets="@../css/style.css" text="Catalog" textFill="WHITE" GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
                         <Image url="@../icons/gallery.png" />
-                    </image>
-                </ImageView>
-            </graphic>
-            <font>
-                <Font name="Century Gothic Bold" size="14.0" />
-            </font>
-        </Button>
-        <Button alignment="CENTER" contentDisplay="TOP" maxHeight="200.0" maxWidth="300.0" minHeight="150.0" minWidth="217.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="217.0" stylesheets="@../css/style.css" text="Statistics" textFill="WHITE" GridPane.columnIndex="2" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
-            <graphic>
-                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="TOP" maxHeight="200.0" maxWidth="300.0" minHeight="150.0" minWidth="217.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="217.0" stylesheets="@../css/style.css" text="Statistics" textFill="WHITE" GridPane.columnIndex="2" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
                         <Image url="@../icons/statistics.png" />
-                    </image>
-                </ImageView>
-            </graphic>
-            <font>
-                <Font name="Century Gothic Bold" size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="btn_Users" alignment="CENTER" contentDisplay="TOP" maxHeight="200.0" maxWidth="300.0" minHeight="150.0" minWidth="217.0" mnemonicParsing="false" onAction="#btn_Users" prefHeight="150.0" prefWidth="217.0" stylesheets="@../css/style.css" text="Users" textFill="WHITE" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
-            <graphic>
-                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_Users" alignment="CENTER" contentDisplay="TOP" maxHeight="200.0" maxWidth="300.0" minHeight="150.0" minWidth="217.0" mnemonicParsing="false" onAction="#btn_Users" prefHeight="150.0" prefWidth="217.0" stylesheets="@../css/style.css" text="Users" textFill="WHITE" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
                         <Image url="@../icons/user.png" />
-                    </image>
-                </ImageView>
-            </graphic>
-            <font>
-                <Font name="Century Gothic Bold" size="14.0" />
-            </font>
-        </Button>
-    </children>
-</GridPane>
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>
