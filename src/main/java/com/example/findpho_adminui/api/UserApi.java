@@ -3,7 +3,7 @@ package com.example.findpho_adminui.api;
 import com.example.findpho_adminui.Controller;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.example.findpho_adminui.User;
+import com.example.findpho_adminui.classes.User;
 
 import java.io.IOException;
 import java.lang.reflect.Type;

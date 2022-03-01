@@ -91,7 +91,15 @@ public class MainController extends Controller {
     }
 
     @FXML
-    public void btn_Logout(ActionEvent actionEvent) { Controller.closeWindow(actionEvent); }
+    public void btn_Logout(ActionEvent actionEvent) throws IOException {
+        try {
+            Controller hozzaadas = newWindow("views/login-view.fxml", "Users",
+                    600, 500);
+            hozzaadas.getStage().show();
+        } catch (Exception e) {
+            error(e);
+        }
+    }
 
     @FXML
     public void btn_Settings(ActionEvent actionEvent) throws IOException {

@@ -7,7 +7,7 @@
 
 .table-view .column-header .label
 {
-    -fx-text-fill: gainsboro;
+    -fx-text-fill: WHITE;
     -fx-font-weight: bold;
     -fx-alignment: CENTER;
 }

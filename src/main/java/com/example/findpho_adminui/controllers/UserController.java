@@ -2,10 +2,9 @@ package com.example.findpho_adminui.controllers;
 
 import com.example.findpho_adminui.Controller;
 import com.example.findpho_adminui.FindPhoDB;
-import com.example.findpho_adminui.User;
+import com.example.findpho_adminui.classes.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -59,8 +58,6 @@ public class UserController extends Controller {
     private FindPhoDB db;
 
     private Stage stage;
-
-    private Scene scene;
 
     private double x, y = 0;
     @FXML

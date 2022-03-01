@@ -23,7 +23,7 @@
     -fx-background-color : #73A3EF;
 }
 
-#txt_Search
+.text-field
 {
     -fx-border-radius: 0;
     -fx-background-radius: 0;

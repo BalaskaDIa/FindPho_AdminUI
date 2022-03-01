@@ -1,4 +1,4 @@
-package com.example.findpho_adminui;
+package com.example.findpho_adminui.classes;
 
 public class User {
     private int id;

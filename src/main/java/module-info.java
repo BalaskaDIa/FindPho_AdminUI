@@ -16,4 +16,6 @@ module com.example.findpho_adminui {
     exports com.example.findpho_adminui;
     exports com.example.findpho_adminui.controllers;
     opens com.example.findpho_adminui.controllers to javafx.fxml;
+    exports com.example.findpho_adminui.classes;
+    opens com.example.findpho_adminui.classes to javafx.fxml;
 }

@@ -1,5 +1,7 @@
 package com.example.findpho_adminui;
 
+import com.example.findpho_adminui.classes.User;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

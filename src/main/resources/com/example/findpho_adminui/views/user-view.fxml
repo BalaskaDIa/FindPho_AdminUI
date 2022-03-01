@@ -25,22 +25,22 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button fx:id="btn_search" layoutX="639.0" layoutY="120.0" mnemonicParsing="false" onAction="#btn_search" prefHeight="30.0" prefWidth="200.0" text="Search" textFill="GAINSBORO" AnchorPane.rightAnchor="11.0">
+      <Button fx:id="btn_search" layoutX="639.0" layoutY="120.0" mnemonicParsing="false" onAction="#btn_search" prefHeight="30.0" prefWidth="200.0" text="Search" textFill="WHITE" AnchorPane.rightAnchor="11.0">
          <font>
             <Font name="Century Gothic Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btn_delete" layoutX="639.0" layoutY="394.0" mnemonicParsing="false" onAction="#btn_delete" prefHeight="30.0" prefWidth="200.0" text="Delete" textFill="GAINSBORO" AnchorPane.bottomAnchor="25.6" AnchorPane.rightAnchor="11.0">
+      <Button fx:id="btn_delete" layoutX="639.0" layoutY="394.0" mnemonicParsing="false" onAction="#btn_delete" prefHeight="30.0" prefWidth="200.0" text="Delete" textFill="WHITE" AnchorPane.bottomAnchor="25.6" AnchorPane.rightAnchor="11.0">
          <font>
             <Font name="Century Gothic Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btn_edit" layoutX="639.0" layoutY="165.0" mnemonicParsing="false" onAction="#btn_edit" prefHeight="30.0" prefWidth="200.0" text="Edit" textFill="GAINSBORO" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="165.0">
+      <Button fx:id="btn_edit" layoutX="639.0" layoutY="165.0" mnemonicParsing="false" onAction="#btn_edit" prefHeight="30.0" prefWidth="200.0" text="Edit" textFill="WHITE" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="165.0">
          <font>
             <Font name="Century Gothic Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btn_add" layoutX="639.0" layoutY="210.0" mnemonicParsing="false" onAction="#btn_add" prefHeight="30.0" prefWidth="200.0" text="Add a new one" textFill="GAINSBORO" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="210.0">
+      <Button fx:id="btn_add" layoutX="639.0" layoutY="210.0" mnemonicParsing="false" onAction="#btn_add" prefHeight="30.0" prefWidth="200.0" text="Add a new one" textFill="WHITE" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="210.0">
          <font>
             <Font name="Century Gothic Bold" size="14.0" />
          </font>
