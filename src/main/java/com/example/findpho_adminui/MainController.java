@@ -1,18 +1,12 @@
 package com.example.findpho_adminui;
 
-import com.example.findpho_adminui.Controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 
@@ -93,12 +87,14 @@ public class MainController extends Controller {
     @FXML
     public void btn_Logout(ActionEvent actionEvent) throws IOException {
         try {
-            Controller hozzaadas = newWindow("views/login-view.fxml", "Users",
+            Controller hozzaadas = newWindow("views/login-view.fxml", "Login",
                     600, 500);
             hozzaadas.getStage().show();
         } catch (Exception e) {
             error(e);
         }
+        stage = (Stage) mainAnchor.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
