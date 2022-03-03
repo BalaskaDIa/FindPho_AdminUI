@@ -6,12 +6,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
--firstname lastname -> fullname
--admin boolean
--createdAt dateTime
-*/
-
 public class FindPhoDB {
     Connection conn;
 
@@ -22,26 +16,26 @@ public class FindPhoDB {
     public List<User> getUser() throws SQLException {
         List<User> userList = new ArrayList<>();
         Statement stmt = conn.createStatement();
-        String sql = "SELECT * FROM user";
+        String sql = "SELECT * FROM users";
         ResultSet result = stmt.executeQuery(sql);
         while (result.next()){
             int id = result.getInt("id");
+            String name = result.getString("name");
             String username = result.getString("username");
             String email = result.getString("email");
-            String firstname = result.getString("firstname");
-            String lastname = result.getString("lastname");
-            User user = new User(id, username, email, firstname, lastname);
+            Boolean admin = result.getBoolean("admin");
+            User user = new User(id, name, username, email, admin);
             userList.add(user);
         }
         return userList;
     }
-    public int addUser(String username, String email, String firstname, String lastname) throws SQLException {
-        String sql = "INSERT INTO user(username, email, firstname, lastname) VALUES (?,?,?,?)";
+    public int addUser(String name, String username, String email, Boolean admin) throws SQLException {
+        String sql = "INSERT INTO user(name, username, email, admin) VALUES (?,?,?,?)";
         PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1,name);
         stmt.setString(1,username);
         stmt.setString(2,email);
-        stmt.setString(3,firstname);
-        stmt.setString(4,lastname);
+        stmt.setBoolean(3,admin);
         return stmt.executeUpdate();
     }
 }

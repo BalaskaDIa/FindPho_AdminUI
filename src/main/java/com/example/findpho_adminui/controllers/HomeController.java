@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class HomeController extends Controller{
 
@@ -13,14 +14,17 @@ public class HomeController extends Controller{
     @FXML
     private AnchorPane contentHome;
 
+
     @FXML
     public void btn_Users(ActionEvent actionEvent) {
         try {
             Controller hozzaadas = newWindow("views/user-view.fxml", "Users",
-                    850, 450);
+                    900, 650);
             hozzaadas.getStage().show();
         } catch (Exception e) {
             error(e);
         }
+        stage = (Stage) contentHome.getScene().getWindow();
+        stage.close();
     }
 }

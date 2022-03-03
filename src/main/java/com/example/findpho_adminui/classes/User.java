@@ -2,26 +2,24 @@ package com.example.findpho_adminui.classes;
 
 public class User {
     private int id;
+    private String name;
     private String username;
     private String email;
-    private String firstname;
-    private String lastname;
+    private Boolean admin;
 
-    public User(int id, String username, String email, String firstname, String lastname) {
+    public User(int id, String name, String username, String email, Boolean admin) {
         this.id = id;
+        this.name = name;
         this.username = username;
         this.email = email;
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.admin = admin;
     }
 
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public String getName() { return name; }
+
+    public void setName(String name) { this.name = name; }
 
     public String getUsername() {
         return username;
@@ -39,19 +37,7 @@ public class User {
         this.email = email;
     }
 
-    public String getFirstname() {
-        return firstname;
-    }
+    public Boolean getAdmin() { return admin; }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
+    public void setAdmin(Boolean admin) { this.admin = admin; }
 }
