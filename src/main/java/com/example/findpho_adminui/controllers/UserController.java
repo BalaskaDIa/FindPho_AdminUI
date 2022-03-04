@@ -4,7 +4,6 @@ import com.example.findpho_adminui.Controller;
 import com.example.findpho_adminui.FindPhoDB;
 import com.example.findpho_adminui.classes.User;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -16,7 +15,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.input.MouseEvent;
 
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -60,6 +58,7 @@ public class UserController extends Controller {
     private double x, y = 0;
 
     public void initialize() {
+        idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         usernameCol.setCellValueFactory(new PropertyValueFactory<>("username"));
         emailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
