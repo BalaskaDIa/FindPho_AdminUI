@@ -59,6 +59,7 @@ public class Controller {
     }
 
     protected void error(Exception e) {
+        e.printStackTrace(System.err);
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Something went wrong");
         alert.setHeaderText(e.getClass().toString());
