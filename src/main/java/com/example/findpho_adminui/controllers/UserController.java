@@ -2,7 +2,10 @@ package com.example.findpho_adminui.controllers;
 
 import com.example.findpho_adminui.Controller;
 import com.example.findpho_adminui.FindPhoDB;
+import com.example.findpho_adminui.api.UserApi;
 import com.example.findpho_adminui.classes.User;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -15,6 +18,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -56,6 +60,7 @@ public class UserController extends Controller {
     private FindPhoDB db;
     private Stage stage;
     private double x, y = 0;
+    private ObservableList<User> userList = FXCollections.observableArrayList();
 
     public void initialize() {
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -63,22 +68,17 @@ public class UserController extends Controller {
         usernameCol.setCellValueFactory(new PropertyValueFactory<>("username"));
         emailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
         adminCol.setCellValueFactory(new PropertyValueFactory<>("admin"));
-        try {
-            db = new FindPhoDB();
-            addList();
-        } catch (SQLException e) {
-            error(e);
-        }
+        addList();
     }
 
     private void addList() {
         try {
-            List<User> userList = db.getUser();
+            List<User> userList = UserApi.getUser();
             userTable.getItems().clear();
-            for(User user: userList){
+            for (User user : userList) {
                 userTable.getItems().add(user);
             }
-        } catch (SQLException e) {
+        }catch (IOException e) {
             error(e);
         }
     }

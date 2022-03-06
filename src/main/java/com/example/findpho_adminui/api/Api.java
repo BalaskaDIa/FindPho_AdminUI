@@ -1,10 +1,14 @@
 package com.example.findpho_adminui.api;
 
+import com.example.findpho_adminui.Controller;
 import com.google.gson.Gson;
 
 import java.io.IOException;
 
-public class Api {
+public class Api extends Controller {
+
+    private static Gson jsonConverter = new Gson();
+
     public static String get(String url) throws IOException {
         Response response = RequestHandler.get(url);
         String json = response.getContent();

@@ -19,7 +19,7 @@ public class HomeController extends Controller{
     public void btn_Users(ActionEvent actionEvent) {
         try {
             Controller hozzaadas = newWindow("views/user-view.fxml", "Users",
-                    900, 650);
+                    900, 600);
             hozzaadas.getStage().show();
         } catch (Exception e) {
             error(e);

@@ -7,6 +7,8 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -26,6 +28,8 @@ public class Controller {
 
     public static Pane pane;
 
+    public static DialogPane dialogPane;
+
     public Stage getStage() {
         return stage;
     }
@@ -38,14 +42,12 @@ public class Controller {
         Alert alert = new Alert(Alert.AlertType.NONE);
         alert.setContentText(uzenet);
         alert.getButtonTypes().add(ButtonType.OK);
+        dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(getClass().getResource("/com/example/findpho_adminui/css/alert.css").toExternalForm());
+        dialogPane.getStyleClass().add("dialogPane");
+        Stage stage = (Stage) dialogPane.getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("/com/example/findpho_adminui/icons/blue.png").toExternalForm()));
         alert.show();
-    }
-
-    protected void alertWait(String uzenet) {
-        Alert alert = new Alert(Alert.AlertType.NONE);
-        alert.setContentText(uzenet);
-        alert.getButtonTypes().add(ButtonType.OK);
-        alert.showAndWait();
     }
 
     protected static boolean confirm(String uzenet){

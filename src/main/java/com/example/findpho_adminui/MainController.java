@@ -33,17 +33,6 @@ public class MainController extends Controller {
         changeStage("views/home-view.fxml");
     }
 
-    @Deprecated
-    public void btn_Users(ActionEvent actionEvent) throws IOException {
-        try {
-            Controller hozzaadas = newWindow("views/user-view.fxml", "Users",
-                    900, 650);
-            hozzaadas.getStage().show();
-        } catch (Exception e) {
-            error(e);
-        }
-    }
-
     @FXML
     public void btn_Home(ActionEvent actionEvent) throws IOException {
         changeStage("views/home-view.fxml");
