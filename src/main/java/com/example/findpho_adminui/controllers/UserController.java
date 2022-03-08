@@ -1,11 +1,8 @@
 package com.example.findpho_adminui.controllers;
 
 import com.example.findpho_adminui.Controller;
-import com.example.findpho_adminui.FindPhoDB;
 import com.example.findpho_adminui.api.UserApi;
 import com.example.findpho_adminui.classes.User;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -19,7 +16,6 @@ import javafx.stage.Stage;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 public class UserController extends Controller {
@@ -60,7 +56,6 @@ public class UserController extends Controller {
     private FindPhoDB db;
     private Stage stage;
     private double x, y = 0;
-    private ObservableList<User> userList = FXCollections.observableArrayList();
 
     public void initialize() {
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -89,6 +84,15 @@ public class UserController extends Controller {
 
     @FXML
     public void btn_add(ActionEvent actionEvent) {
+        try {
+            Controller hozzaadas = newWindow("views/addUser-view.fxml", "Add user",
+                    400, 400);
+            hozzaadas.getStage().show();
+        } catch (Exception e) {
+            error(e);
+        }
+        stage = (Stage) mainAnchor.getScene().getWindow();
+        stage.close();
     }
 
     @FXML

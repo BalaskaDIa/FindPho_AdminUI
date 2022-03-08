@@ -11,11 +11,11 @@ import java.util.List;
 
 public class UserApi extends Controller {
 
-    private static final String API_URL = "http://127.0.0.1:8000/api/users";
+    private static final String API_URL = "http://127.0.0.1:8000/api";
     private static Gson jsonConverter = new Gson();
 
     public static List<User> getUser() throws IOException {
-        String json = Api.get(API_URL);
+        String json = Api.get(API_URL + "/users");
         Type type = new TypeToken<List<User>>() {
         }.getType();
         return jsonConverter.fromJson(json, type);

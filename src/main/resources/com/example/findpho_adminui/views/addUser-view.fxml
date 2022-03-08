@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.ToggleSwitch?>
+
+<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.findpho_adminui.controllers.AddUserController">
+   <children>
+      <Label layoutX="70.0" layoutY="90.0" text="Name">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="140.0" text="Username">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="190.0" text="Email">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="240.0" text="Admin">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Label>
+      <TextField layoutX="220.0" layoutY="90.0" stylesheets="@../css/txtfield.css" />
+      <TextField layoutX="220.0" layoutY="140.0" stylesheets="@../css/txtfield.css" />
+      <TextField layoutX="220.0" layoutY="190.0" stylesheets="@../css/txtfield.css" />
+      <Button layoutX="150.0" layoutY="338.0" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/style.css" text="Cancel" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic" size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="267.0" layoutY="338.0" mnemonicParsing="false" prefWidth="100.0" stylesheets="@../css/style.css" text="Save" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic" size="16.0" />
+         </font>
+      </Button>
+      <Pane fx:id="pane" layoutX="5.0" layoutY="14.0" prefHeight="61.0" prefWidth="500.0" stylesheets="@../css/style.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="148.0" layoutY="15.0" text="Add user" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="24.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Pane fx:id="pane" layoutX="-6.0" layoutY="449.0" prefHeight="20.0" prefWidth="500.0" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Separator layoutX="25.0" layoutY="313.0" prefWidth="350.0" />
+      <ToggleSwitch layoutX="250.0" layoutY="240.0" prefHeight="18.0" prefWidth="58.0" stylesheets="@../css/txtfield.css" />
+   </children>
+</AnchorPane>
