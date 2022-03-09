@@ -95,13 +95,37 @@ public class UserController extends Controller {
 
     @FXML
     public void btn_edit(ActionEvent actionEvent) {
+        /*try {
+            Controller add = newWindow("views/editUser-view.fxml", "Edit user",
+                    400, 400);
+            add.getStage().show();
+        } catch (Exception e) {
+            error(e);
+        }
+        stage = (Stage) mainAnchor.getScene().getWindow();
+        stage.close();*/
+        int selectedIndex = userTable.getSelectionModel().getSelectedIndex();
+        if (selectedIndex == -1) {
+            alert("First select an item from the table");
+            return;
+        }
+        User updateUser = userTable.getSelectionModel().getSelectedItem();
+        try {
+            EditUserController modify = (EditUserController) newWindow("views/editUser-view.fxml",
+                    "Edit user", 400, 400);
+            modify.setUpdateUser(updateUser);
+            modify.getStage().setOnHiding(event -> userTable.refresh());
+            modify.getStage().show();
+        } catch (IOException e) {
+            error(e);
+        }
     }
 
     @FXML
     public void btn_delete(ActionEvent actionEvent) {
         int selectedIndex = userTable.getSelectionModel().getSelectedIndex();
         if (selectedIndex == -1) {
-            alert("First select an item from the table ");
+            alert("First select an item from the table");
             return;
         }
         User userDeletion = userTable.getSelectionModel().getSelectedItem();
@@ -109,8 +133,8 @@ public class UserController extends Controller {
             return;
         }
         try {
-            boolean sikeres = UserApi.deleteUser(userDeletion.getId());
-            alert(sikeres ? "Delete successfully" : "Delete failed");
+            boolean success = UserApi.deleteUser(userDeletion.getId());
+            alert(success ? "Delete successfully" : "Delete failed");
             addList();
         } catch (IOException e) {
             error(e);

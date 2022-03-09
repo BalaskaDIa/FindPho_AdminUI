@@ -17,3 +17,20 @@
 .toggle-switch:selected .thumb-area {
     -fx-background-color: #19406B;
 }
+
+.tab-pane > .tab-header-area > .tab-header-background {
+    -fx-background-color: #183B62;
+}
+
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-color: transparent;
+}
+
+.tab {
+    -fx-background-color: #19406B;
+}
+
+.tab-label {
+    -fx-text-fill: white;
+    -fx-font-family: Tahoma;
+}

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.ToggleSwitch?>
+
+<AnchorPane fx:id="mainAnchor" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.findpho_adminui.controllers.EditUserController">
+   <children>
+      <TabPane fx:id="tabPane" layoutX="93.0" layoutY="74.0" onMouseDragged="#dragTab" onMousePressed="#pressTab" prefHeight="400.0" prefWidth="400.0" stylesheets="@../css/txtfield.css" tabClosingPolicy="UNAVAILABLE" tabMaxWidth="200.0" tabMinWidth="179.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="Data">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="33.0" prefWidth="400.0" style="-fx-background-color: #19406B;">
+                           <children>
+                              <Label fx:id="lbl_Name" layoutX="5.0" text="Name" textFill="WHITE">
+                                 <font>
+                                    <Font name="Century Gothic" size="24.0" />
+                                 </font>
+                              </Label>
+                              <HBox alignment="TOP_RIGHT" layoutX="308.0" layoutY="-5.0" prefHeight="36.0" prefWidth="85.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#btn_closeWindowData" style="-fx-background-color: transparent;">
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../icons/close.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </Pane>
+                        <Pane layoutY="357.0" prefHeight="20.0" prefWidth="400.0" style="-fx-background-color: #19406B;" AnchorPane.bottomAnchor="0.0" />
+                        <VBox layoutX="150.0" layoutY="99.0" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="lbl_Username" text="Usrname" />
+                              <Label fx:id="lbl_Email" text="Email" />
+                              <Label fx:id="lbl_Admin" text="Admin" />
+                           </children>
+                        </VBox>
+                     </children></AnchorPane>
+            </content>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/userdata.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+          </Tab>
+          <Tab text="Update">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                      <Label layoutX="70.0" layoutY="90.0" text="Name">
+                          <font>
+                              <Font name="Century Gothic" size="18.0" />
+                          </font>
+                      </Label>
+                      <Label layoutX="70.0" layoutY="140.0" text="Username">
+                          <font>
+                              <Font name="Century Gothic" size="18.0" />
+                          </font>
+                      </Label>
+                      <Label layoutX="70.0" layoutY="190.0" text="Email">
+                          <font>
+                              <Font name="Century Gothic" size="18.0" />
+                          </font>
+                      </Label>
+                      <Label layoutX="70.0" layoutY="240.0" text="Admin">
+                          <font>
+                              <Font name="Century Gothic" size="18.0" />
+                          </font>
+                      </Label>
+                      <TextField fx:id="txt_Name" layoutX="220.0" layoutY="90.0" stylesheets="@../css/txtfield.css" />
+                      <TextField fx:id="txt_Username" layoutX="220.0" layoutY="140.0" stylesheets="@../css/txtfield.css" />
+                      <TextField fx:id="txt_Email" layoutX="220.0" layoutY="190.0" stylesheets="@../css/txtfield.css" />
+                      <Button layoutX="100.0" layoutY="299.0" mnemonicParsing="false" onAction="#btn_Save" prefWidth="200.0" stylesheets="@../css/style.css" text="Save" textFill="WHITE">
+                          <font>
+                              <Font name="Century Gothic" size="16.0" />
+                          </font>
+                      </Button>
+                      <Pane layoutX="-6.0" layoutY="449.0" prefHeight="20.0" prefWidth="500.0" style="-fx-background-color: #19406B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                      <Separator layoutX="25.0" layoutY="278.0" prefWidth="350.0" />
+                      <ToggleSwitch layoutX="250.0" layoutY="240.0" prefHeight="18.0" prefWidth="58.0" stylesheets="@../css/txtfield.css" />
+                      <Pane layoutX="5.0" layoutY="5.0" prefHeight="33.0" prefWidth="400.0" style="-fx-background-color: #19406B;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <children>
+                              <Label layoutX="148.0" text="Edit user" textFill="WHITE">
+                                  <font>
+                                      <Font name="Century Gothic" size="24.0" />
+                                  </font>
+                              </Label>
+                              <HBox alignment="TOP_RIGHT" layoutX="308.0" layoutY="-5.0" prefHeight="36.0" prefWidth="85.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#btn_closeWindowUpdate" style="-fx-background-color: transparent;">
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../icons/close.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                          </children></Pane>
+                  </children>
+              </AnchorPane>
+            </content>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/edituser.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
