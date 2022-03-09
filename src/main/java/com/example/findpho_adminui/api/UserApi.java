@@ -11,29 +11,55 @@ import java.util.List;
 
 public class UserApi extends Controller {
 
-    private static final String API_URL = "http://127.0.0.1:8000/api";
-    private static Gson jsonConverter = new Gson();
+    private static final String BASE_URL = "http://localhost:8000";
+    public static final String USER_API_URL = BASE_URL + "/api/users";
 
     public static List<User> getUser() throws IOException {
-        String json = Api.get(API_URL + "/users");
-        Type type = new TypeToken<List<User>>() {
-        }.getType();
-        return jsonConverter.fromJson(json, type);
+        Response response = RequestHandler.get(USER_API_URL);
+        String json = response.getContent();
+        Gson jsonConvert = new Gson();
+        if (response.getResponseCode() >= 400){
+            String message = jsonConvert.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        Type type = new TypeToken<List<User>>(){}.getType();
+        return jsonConvert.fromJson(json,type);
     }
 
-    public static User post(User uj) throws IOException {
-        String ujJson = jsonConverter.toJson(uj);
-        String json = Api.post(API_URL, ujJson);
-        return jsonConverter.fromJson(json, User.class);
+    public static User putUser(User newUser) throws IOException {
+        Gson jsonConvert = new Gson();
+        String userJson = jsonConvert.toJson(newUser);
+        Response response = RequestHandler.post(USER_API_URL, userJson);
+
+        String json = response.getContent();
+        if (response.getResponseCode() >= 400){
+            String message = jsonConvert.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        return jsonConvert.fromJson(json, User.class);
+    }
+    public static User updateUser(User update) throws IOException {
+        Gson jsonConvert = new Gson();
+        String filmJson = jsonConvert.toJson(update);
+        Response response = RequestHandler.put(USER_API_URL + "/" + update.getId(), filmJson);
+
+        String json = response.getContent();
+        if (response.getResponseCode() >= 400){
+            String message = jsonConvert.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        return jsonConvert.fromJson(json, User.class);
     }
 
-    public static boolean delete(int id) throws IOException {
-        return Api.delete(API_URL, id).getResponseCode() == 204;
-    }
+    public static boolean deleteUser(int id) throws IOException {
+        Response response = RequestHandler.delete(USER_API_URL+ "/" + id);
 
-    public static User put(User modosit, int id) throws IOException {
-        String modositandoJson = jsonConverter.toJson(modosit);
-        String json = Api.put(API_URL, modositandoJson, id);
-        return jsonConverter.fromJson(json, User.class);
+        Gson jsonConvert = new Gson();
+        String json = response.getContent();
+        if (response.getResponseCode() >= 400){
+            String message = jsonConvert.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        return response.getResponseCode() == 204;
     }
 }

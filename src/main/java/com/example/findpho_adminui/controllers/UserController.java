@@ -52,8 +52,6 @@ public class UserController extends Controller {
     private AnchorPane sideBar;
     @FXML
     private Pane pane;
-
-    private FindPhoDB db;
     private Stage stage;
     private double x, y = 0;
 
