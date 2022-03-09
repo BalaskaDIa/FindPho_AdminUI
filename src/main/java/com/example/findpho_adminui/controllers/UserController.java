@@ -99,6 +99,22 @@ public class UserController extends Controller {
 
     @FXML
     public void btn_delete(ActionEvent actionEvent) {
+        int selectedIndex = userTable.getSelectionModel().getSelectedIndex();
+        if (selectedIndex == -1) {
+            alert("First select an item from the table ");
+            return;
+        }
+        User userDeletion = userTable.getSelectionModel().getSelectedItem();
+        if (!confirm("Are you sure you want to delete the user below : " + userDeletion.getName())) {
+            return;
+        }
+        try {
+            boolean sikeres = UserApi.deleteUser(userDeletion.getId());
+            alert(sikeres ? "Delete successfully" : "Delete failed");
+            addList();
+        } catch (IOException e) {
+            error(e);
+        }
     }
 
     @FXML
