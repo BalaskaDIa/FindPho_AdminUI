@@ -83,9 +83,9 @@ public class UserController extends Controller {
     @FXML
     public void btn_add(ActionEvent actionEvent) {
         try {
-            Controller hozzaadas = newWindow("views/addUser-view.fxml", "Add user",
+            Controller add = newWindow("views/addUser-view.fxml", "Add user",
                     400, 400);
-            hozzaadas.getStage().show();
+            add.getStage().show();
         } catch (Exception e) {
             error(e);
         }
@@ -146,9 +146,9 @@ public class UserController extends Controller {
     @FXML
     public void btn_Back(ActionEvent actionEvent) {
         try {
-            Controller hozzaadas = newWindow("views/main-view.fxml", "FindPho",
+            Controller add = newWindow("views/main-view.fxml", "FindPho",
                     900, 650);
-            hozzaadas.getStage().show();
+            add.getStage().show();
         } catch (Exception e) {
             error(e);
         }

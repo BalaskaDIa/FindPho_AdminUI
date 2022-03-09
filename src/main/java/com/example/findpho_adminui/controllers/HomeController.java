@@ -18,9 +18,9 @@ public class HomeController extends Controller{
     @FXML
     public void btn_Users(ActionEvent actionEvent) {
         try {
-            Controller hozzaadas = newWindow("views/user-view.fxml", "Users",
+            Controller add = newWindow("views/user-view.fxml", "Users",
                     900, 600);
-            hozzaadas.getStage().show();
+            add.getStage().show();
         } catch (Exception e) {
             error(e);
         }

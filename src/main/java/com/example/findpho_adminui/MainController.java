@@ -9,7 +9,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-
 import java.io.IOException;
 
 public class MainController extends Controller {
@@ -76,9 +75,9 @@ public class MainController extends Controller {
     @FXML
     public void btn_Logout(ActionEvent actionEvent) throws IOException {
         try {
-            Controller hozzaadas = newWindow("views/login-view.fxml", "Login",
+            Controller add = newWindow("views/login-view.fxml", "Login",
                     600, 500);
-            hozzaadas.getStage().show();
+            add.getStage().show();
         } catch (Exception e) {
             error(e);
         }
