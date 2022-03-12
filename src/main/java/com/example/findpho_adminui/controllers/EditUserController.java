@@ -1,17 +1,18 @@
 package com.example.findpho_adminui.controllers;
 
 import com.example.findpho_adminui.Controller;
+import com.example.findpho_adminui.api.UserApi;
 import com.example.findpho_adminui.classes.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class EditUserController extends Controller {
 
@@ -42,7 +43,7 @@ public class EditUserController extends Controller {
 
     @FXML
     public void dragTab(MouseEvent event) {
-        Stage stage = (Stage)pane.getScene().getWindow();
+        Stage stage = (Stage)tabPane.getScene().getWindow();
         stage.setX(event.getScreenX() - x);
         stage.setY(event.getScreenY() - y);
     }
@@ -96,6 +97,36 @@ public class EditUserController extends Controller {
 
     @FXML
     public void btn_Save(ActionEvent actionEvent) {
+        String name = lbl_Name.getText().trim();
+        String username = lbl_Username.getText().trim();
+        String email = lbl_Email.getText().trim();
+        if (name.isEmpty()){
+            alert("Name is required!");
+            return;
+        }
+        if (username.isEmpty()){
+            alert("Username is required!");
+            return;
+        }
+        if (email.isEmpty()){
+            alert("Email is required!");
+            return;
+        }
 
+        updateUser.setName(name);
+        updateUser.setUsername(username);
+        updateUser.setEmail(email);
+
+        try {
+            User updated = UserApi.putUser(updateUser);
+            if (updated != null){
+                alert("Update successful");
+                this.stage.close();
+            } else {
+                alert("Update failed");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

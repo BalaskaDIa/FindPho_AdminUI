@@ -95,15 +95,6 @@ public class UserController extends Controller {
 
     @FXML
     public void btn_edit(ActionEvent actionEvent) {
-        /*try {
-            Controller add = newWindow("views/editUser-view.fxml", "Edit user",
-                    400, 400);
-            add.getStage().show();
-        } catch (Exception e) {
-            error(e);
-        }
-        stage = (Stage) mainAnchor.getScene().getWindow();
-        stage.close();*/
         int selectedIndex = userTable.getSelectionModel().getSelectedIndex();
         if (selectedIndex == -1) {
             alert("First select an item from the table");
@@ -134,7 +125,7 @@ public class UserController extends Controller {
         }
         try {
             boolean success = UserApi.deleteUser(userDeletion.getId());
-            alert(success ? "Delete successfully" : "Delete failed");
+            alert(success ? "Delete successful" : "Delete failed");
             addList();
         } catch (IOException e) {
             error(e);
