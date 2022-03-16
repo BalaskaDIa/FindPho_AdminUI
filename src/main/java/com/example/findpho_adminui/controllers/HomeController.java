@@ -27,4 +27,17 @@ public class HomeController extends Controller{
         stage = (Stage) contentHome.getScene().getWindow();
         stage.close();
     }
+
+    @FXML
+    public void btn_Catalog(ActionEvent actionEvent) {
+        try {
+            Controller add = newWindow("views/catalog-view.fxml", "Catalog",
+                    900, 600);
+            add.getStage().show();
+        } catch (Exception e) {
+            error(e);
+        }
+        stage = (Stage) contentHome.getScene().getWindow();
+        stage.close();
+    }
 }
