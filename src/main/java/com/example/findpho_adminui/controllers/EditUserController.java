@@ -6,6 +6,7 @@ import com.example.findpho_adminui.classes.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.Spinner;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -40,6 +41,10 @@ public class EditUserController extends Controller {
 
     private User updateUser;
     private double x, y = 0;
+
+    @FXML
+    private Spinner<Integer> spinner_Admin;
+
 
     @FXML
     public void dragTab(MouseEvent event) {
@@ -89,17 +94,13 @@ public class EditUserController extends Controller {
         setValue();
     }
 
-    private void setValue() {
-        lbl_Name.setText(updateUser.getName());
-        lbl_Username.setText(updateUser.getUsername());
-        lbl_Email.setText(updateUser.getEmail());
-    }
-
     @FXML
     public void btn_Save(ActionEvent actionEvent) {
-        String name = lbl_Name.getText().trim();
-        String username = lbl_Username.getText().trim();
-        String email = lbl_Email.getText().trim();
+        String name = txt_Name.getText().trim();
+        String username = txt_Username.getText().trim();
+        String email = txt_Email.getText().trim();
+        int admin = 0;
+
         if (name.isEmpty()){
             alert("Name is required!");
             return;
@@ -116,6 +117,7 @@ public class EditUserController extends Controller {
         updateUser.setName(name);
         updateUser.setUsername(username);
         updateUser.setEmail(email);
+        updateUser.setAdmin(admin);
 
         try {
             User updated = UserApi.putUser(updateUser);
@@ -128,5 +130,12 @@ public class EditUserController extends Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void setValue() {
+        txt_Name.setText(updateUser.getName());
+        txt_Username.setText(updateUser.getUsername());
+        txt_Email.setText(updateUser.getEmail());
+        spinner_Admin.getValueFactory().setValue(updateUser.getAdmin());
     }
 }

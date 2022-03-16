@@ -32,7 +32,7 @@ public class UserController extends Controller {
     @FXML
     private TableColumn <User,String> emailCol;
     @FXML
-    private TableColumn <User,Boolean> adminCol;
+    private TableColumn <User,Integer> adminCol;
 
     @FXML
     private Button btn_search;

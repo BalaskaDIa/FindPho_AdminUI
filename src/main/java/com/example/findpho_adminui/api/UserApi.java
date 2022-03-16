@@ -26,7 +26,7 @@ public class UserApi extends Controller {
         return jsonConvert.fromJson(json,type);
     }
 
-    public static User putUser(User newUser) throws IOException {
+    public static User postUser(User newUser) throws IOException {
         Gson jsonConvert = new Gson();
         String userJson = jsonConvert.toJson(newUser);
         Response response = RequestHandler.post(USER_API_URL, userJson);
@@ -38,10 +38,10 @@ public class UserApi extends Controller {
         }
         return jsonConvert.fromJson(json, User.class);
     }
-    public static User updateUser(User update) throws IOException {
+    public static User putUser(User update) throws IOException {
         Gson jsonConvert = new Gson();
-        String filmJson = jsonConvert.toJson(update);
-        Response response = RequestHandler.put(USER_API_URL + "/" + update.getId(), filmJson);
+        String userJson = jsonConvert.toJson(update);
+        Response response = RequestHandler.put(USER_API_URL + "/" + update.getId(), userJson);
 
         String json = response.getContent();
         if (response.getResponseCode() >= 400){

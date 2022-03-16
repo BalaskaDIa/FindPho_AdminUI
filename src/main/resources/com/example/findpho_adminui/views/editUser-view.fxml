@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import org.controlsfx.control.ToggleSwitch?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
 <AnchorPane fx:id="mainAnchor" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.findpho_adminui.controllers.EditUserController">
    <children>
@@ -97,7 +88,6 @@
                       </Button>
                       <Pane layoutX="-6.0" layoutY="449.0" prefHeight="20.0" prefWidth="500.0" style="-fx-background-color: #19406B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                       <Separator layoutX="25.0" layoutY="278.0" prefWidth="350.0" />
-                      <ToggleSwitch layoutX="250.0" layoutY="240.0" prefHeight="18.0" prefWidth="58.0" stylesheets="@../css/controls.css" />
                       <Pane layoutX="5.0" layoutY="5.0" prefHeight="33.0" prefWidth="400.0" style="-fx-background-color: #19406B;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <children>
                               <Label layoutX="148.0" text="Edit user" textFill="WHITE">
@@ -119,6 +109,11 @@
                                  </children>
                               </HBox>
                           </children></Pane>
+                        <Spinner fx:id="spinner_Admin" layoutX="219.0" layoutY="239.0" editable="true" >
+                                <valueFactory>
+                                    <SpinnerValueFactory.IntegerSpinnerValueFactory amountToStepBy="1" initialValue="0" max="1" min="0"/>
+                                </valueFactory>
+                      </Spinner>
                   </children>
               </AnchorPane>
             </content>

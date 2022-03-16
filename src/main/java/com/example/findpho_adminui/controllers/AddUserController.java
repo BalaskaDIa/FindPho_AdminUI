@@ -1,8 +1,11 @@
 package com.example.findpho_adminui.controllers;
 
 import com.example.findpho_adminui.Controller;
+import com.example.findpho_adminui.api.UserApi;
+import com.example.findpho_adminui.classes.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -12,6 +15,13 @@ public class AddUserController extends Controller {
 
     @FXML
     private AnchorPane mainAnchor;
+
+    @FXML
+    private TextField txt_Email;
+    @FXML
+    private TextField txt_Username;
+    @FXML
+    private TextField txt_Name;
 
     @FXML
     private Pane pane;
@@ -42,5 +52,36 @@ public class AddUserController extends Controller {
         }
         stage = (Stage) mainAnchor.getScene().getWindow();
         stage.close();
+    }
+
+    @FXML
+    public void btn_Save(ActionEvent actionEvent) {
+        String name = txt_Name.getText().trim();
+        String username = txt_Username.getText().trim();
+        String email = txt_Email.getText().trim();
+        if (name.isEmpty()){
+            alert("Name is required!");
+            return;
+        }
+        if (username.isEmpty()){
+            alert("Username is required!");
+            return;
+        }
+        if (email.isEmpty()){
+            alert("Email is required!");
+            return;
+        }
+
+        /*try {
+            User newUser = new User(0, name, username, email);
+            User created = UserApi.postUser(newUser);
+            if (created != null){
+                alert("Creation successful");
+            } else {
+                alert("Creation failed");
+            }
+        } catch (Exception e) {
+            error(e);
+        }*/
     }
 }
