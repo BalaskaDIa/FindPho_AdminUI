@@ -5,9 +5,9 @@ public class User {
     private String name;
     private String username;
     private String email;
-    private int admin;
+    private boolean admin;
 
-    public User(int id, String name, String username, String email, int admin) {
+    public User(int id, String name, String username, String email, boolean admin) {
         this.id = id;
         this.name = name;
         this.username = username;
@@ -37,7 +37,7 @@ public class User {
         this.email = email;
     }
 
-    public int getAdmin() { return admin; }
+    public boolean getAdmin() { return admin; }
 
-    public void setAdmin(int admin) { this.admin = admin; }
+    public void setAdmin(boolean admin) { this.admin = admin; }
 }

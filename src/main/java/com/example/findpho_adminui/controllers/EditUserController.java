@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import org.controlsfx.control.ToggleSwitch;
 
 import java.io.IOException;
 
@@ -44,6 +45,8 @@ public class EditUserController extends Controller {
 
     @FXML
     private Spinner<Integer> spinner_Admin;
+    @FXML
+    private ToggleSwitch ts_Admin;
 
 
     @FXML
@@ -99,7 +102,7 @@ public class EditUserController extends Controller {
         String name = txt_Name.getText().trim();
         String username = txt_Username.getText().trim();
         String email = txt_Email.getText().trim();
-        int admin = 0;
+        boolean admin = ts_Admin.isSelected();
 
         if (name.isEmpty()){
             alert("Name is required!");
@@ -136,6 +139,6 @@ public class EditUserController extends Controller {
         txt_Name.setText(updateUser.getName());
         txt_Username.setText(updateUser.getUsername());
         txt_Email.setText(updateUser.getEmail());
-        spinner_Admin.getValueFactory().setValue(updateUser.getAdmin());
+        ts_Admin.setSelected(updateUser.getAdmin());
     }
 }
