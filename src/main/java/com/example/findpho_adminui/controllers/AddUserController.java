@@ -10,6 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.input.MouseEvent;
+import org.controlsfx.control.ToggleSwitch;
 
 public class AddUserController extends Controller {
 
@@ -22,6 +23,8 @@ public class AddUserController extends Controller {
     private TextField txt_Username;
     @FXML
     private TextField txt_Name;
+    @FXML
+    private ToggleSwitch ts_Admin;
 
     @FXML
     private Pane pane;
@@ -59,6 +62,8 @@ public class AddUserController extends Controller {
         String name = txt_Name.getText().trim();
         String username = txt_Username.getText().trim();
         String email = txt_Email.getText().trim();
+        boolean admin = ts_Admin.isSelected();
+
         if (name.isEmpty()){
             alert("Name is required!");
             return;
@@ -72,8 +77,8 @@ public class AddUserController extends Controller {
             return;
         }
 
-        /*try {
-            User newUser = new User(0, name, username, email);
+        try {
+            User newUser = new User(0, name, username, email, admin);
             User created = UserApi.postUser(newUser);
             if (created != null){
                 alert("Creation successful");
@@ -82,6 +87,6 @@ public class AddUserController extends Controller {
             }
         } catch (Exception e) {
             error(e);
-        }*/
+        }
     }
 }

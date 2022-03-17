@@ -27,10 +27,10 @@
 }
 
 .table-view .virtual-flow .scroll-bar:vertical .thumb{
-    -fx-background-color:  linear-gradient(to bottom, #19406B, #73A3EF);
+    -fx-background-color:  #235892;
 }
 .table-view .virtual-flow .scroll-bar:horizontal .thumb {
-    -fx-background-color:  linear-gradient(to right, #73A3EF, #19406B);
+    -fx-background-color:  #235892;
 }
 
 .table-view {
@@ -43,13 +43,7 @@
 }
 
 .table-row-cell:hover {
-    -fx-background-color: #93f9b911;
-    -fx-text-background-color: #73A3EF;
-    -fx-font-weight: bold;
-}
-
-.table-row-cell:focused {
-    -fx-text-background-color: #183B62;
+    -fx-text-background-color: #235892;
     -fx-font-weight: bold;
 }
 
@@ -62,4 +56,10 @@
     -fx-background-color: #E2F0F5;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em;
+}
+
+.table-row-cell:selected {
+    -fx-text-background-color: white;
+    -fx-background-color: #235892;
+    -fx-font-weight: bold;
 }

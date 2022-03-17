@@ -162,18 +162,6 @@ public class UserController extends Controller {
         y = event.getSceneY();
     }
 
-    @Deprecated
-    public void btn_Logout(ActionEvent actionEvent) {
-    }
-
-    @Deprecated
-    public void btn_Settings(ActionEvent actionEvent) {
-    }
-
-    @Deprecated
-    public void btn_Home(ActionEvent actionEvent) {
-    }
-
     @FXML
     public void btn_Back(ActionEvent actionEvent) {
         try {
