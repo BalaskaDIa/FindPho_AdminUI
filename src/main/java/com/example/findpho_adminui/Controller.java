@@ -22,8 +22,6 @@ import java.util.TimerTask;
 public class Controller {
     protected Stage stage;
 
-    private boolean fullscreen = false;
-
     public static Pane pane;
 
     public static DialogPane dialogPane;
@@ -91,29 +89,10 @@ public class Controller {
     }
 
     protected void maximizeWindowToggle(Stage stage) {
-
-        if (!fullscreen) {
-            Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-            stage.setX(primaryScreenBounds.getMinX());
-            stage.setY(primaryScreenBounds.getMinY());
-
-            stage.setMaxWidth(primaryScreenBounds.getWidth());
-            stage.setMinWidth(primaryScreenBounds.getWidth());
-
-            stage.setMaxHeight(primaryScreenBounds.getHeight());
-            stage.setMinHeight(primaryScreenBounds.getHeight());
-
-            fullscreen = true;
+        if (stage.isMaximized()) {
+            stage.setMaximized(false);
         } else {
-            stage.setMaxWidth(900);
-            stage.setMinWidth(900);
-
-            stage.setMaxHeight(650);
-            stage.setMinHeight(640);
-
-            stage.centerOnScreen();
-
-            fullscreen = false;
+            stage.setMaximized(true);
         }
     }
 
