@@ -15,11 +15,17 @@ public class User {
         this.admin = admin;
     }
 
-    public int getId() { return id; }
+    public int getId() {
+        return id;
+    }
 
-    public String getName() { return name; }
+    public String getName() {
+        return name;
+    }
 
-    public void setName(String name) { this.name = name; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getUsername() {
         return username;
@@ -37,7 +43,11 @@ public class User {
         this.email = email;
     }
 
-    public boolean getAdmin() { return admin; }
+    public boolean isAdmin() {
+        return admin;
+    }
 
-    public void setAdmin(boolean admin) { this.admin = admin; }
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
 }

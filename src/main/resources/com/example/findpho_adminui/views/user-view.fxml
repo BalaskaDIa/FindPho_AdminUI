@@ -27,22 +27,17 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button fx:id="btn_search" layoutX="686.0" layoutY="158.0" mnemonicParsing="false" onAction="#btn_search" prefHeight="30.0" prefWidth="200.0" text="Search" textFill="WHITE" AnchorPane.rightAnchor="14.0">
-         <font>
-            <Font name="Century Gothic Bold" size="14.0" />
-         </font>
-      </Button>
       <Button fx:id="btn_delete" layoutX="686.0" layoutY="544.0" mnemonicParsing="false" onAction="#btn_delete" prefHeight="30.0" prefWidth="200.0" text="Delete" textFill="WHITE" AnchorPane.bottomAnchor="25.600000000000023" AnchorPane.rightAnchor="14.0">
          <font>
             <Font name="Century Gothic Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btn_edit" layoutX="686.0" layoutY="225.0" mnemonicParsing="false" onAction="#btn_edit" prefHeight="30.0" prefWidth="200.0" text="Edit" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="225.0">
+      <Button fx:id="btn_edit" layoutX="686.0" layoutY="175.0" mnemonicParsing="false" onAction="#btn_edit" prefHeight="30.0" prefWidth="200.0" text="Edit" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="175.0">
          <font>
             <Font name="Century Gothic Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btn_add" layoutX="686.0" layoutY="269.0" mnemonicParsing="false" onAction="#btn_add" prefHeight="30.0" prefWidth="200.0" text="Add a new one" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="269.0">
+      <Button fx:id="btn_add" layoutX="686.0" layoutY="216.0" mnemonicParsing="false" onAction="#btn_add" prefHeight="30.0" prefWidth="200.0" text="Add a new one" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="216.0">
          <font>
             <Font name="Century Gothic Bold" size="14.0" />
          </font>
@@ -74,7 +69,7 @@
          <children>
             <VBox layoutY="101.0" prefHeight="150.0" prefWidth="50.0" AnchorPane.topAnchor="101.0">
                <children>
-                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#btn_Back" prefHeight="40.0" prefWidth="60.0" stylesheets="@../css/sidebutton.css" text="Back" textFill="WHITE">
+                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#btn_back" prefHeight="40.0" prefWidth="60.0" stylesheets="@../css/sidebutton.css" text="Back" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -135,5 +130,10 @@
             </Button>
          </children>
       </HBox>
+      <ImageView fitHeight="25.0" fitWidth="21.0" layoutX="863.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="127.0">
+         <image>
+            <Image url="@../icons/search.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

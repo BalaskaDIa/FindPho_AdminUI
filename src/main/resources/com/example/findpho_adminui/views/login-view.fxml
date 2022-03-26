@@ -36,7 +36,7 @@
                            </font>
                         </Label>
                         <TextField fx:id="txt_Password" layoutX="55.0" layoutY="240.0" prefWidth="200.0" promptText="Password" stylesheets="@../css/style.css" />
-                        <Button fx:id="btn_Login" layoutX="119.0" layoutY="300.0" mnemonicParsing="false" stylesheets="@../css/style.css" text="Login" textFill="WHITE">
+                        <Button layoutX="119.0" layoutY="300.0" mnemonicParsing="false" onAction="#btn_Login" stylesheets="@../css/style.css" text="Login" textFill="WHITE">
                            <font>
                               <Font name="Century Gothic" size="18.0" />
                            </font>

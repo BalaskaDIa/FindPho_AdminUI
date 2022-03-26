@@ -28,8 +28,8 @@
     -fx-border-radius: 0;
     -fx-background-radius: 0;
     -fx-background-color: transparent;
-    -fx-border-width: 0px 5px 2px 0px;
-    -fx-border-color: #235892;
+    -fx-border-width: 0px 25px 2px 0px;
+    -fx-border-color: #19406B;
     -fx-text-fill: black;
     -fx-font-family: Tahoma;
 }

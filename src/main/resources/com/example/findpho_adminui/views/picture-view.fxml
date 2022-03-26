@@ -13,40 +13,32 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.findpho_adminui.controllers.CatalogController">
+<AnchorPane fx:id="mainAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.findpho_adminui.controllers.PictureController">
     <children>
-        <TableView fx:id="userTable" layoutX="64.0" layoutY="225.0" minHeight="400.0" minWidth="500.0" prefHeight="450.0" prefWidth="580.0" stylesheets="@../css/table.css" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="236.0" AnchorPane.topAnchor="124.60000000000002">
+        <TableView fx:id="pictureTable" layoutX="84.0" layoutY="134.0" minHeight="210.0" minWidth="500.0" prefHeight="210.0" prefWidth="500.0" stylesheets="@../css/table.css" AnchorPane.bottomAnchor="256.0" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="318.0" AnchorPane.topAnchor="134.0">
             <columns>
                 <TableColumn fx:id="idCol" maxWidth="1000.0" prefWidth="50.0" text="Id" />
-                <TableColumn fx:id="nameCol" prefWidth="50.0" text="User id" />
-                <TableColumn fx:id="usernameCol" prefWidth="100.0" text="Url" />
-                <TableColumn fx:id="emailCol" prefWidth="100.0" text="Coordinate" />
-                <TableColumn fx:id="adminCol" maxWidth="2000.0" prefWidth="100.0" text="Caption" />
-            <TableColumn fx:id="adminCol1" maxWidth="2000.0" prefWidth="100.0" text="Image" />
-            <TableColumn fx:id="adminCol11" maxWidth="2000.0" minWidth="0.0" prefWidth="100.0" text="Category" />
+                <TableColumn fx:id="userIdCol" prefWidth="50.0" text="User id" />
+                <TableColumn fx:id="urlCol" prefWidth="100.0" text="Url" />
+                <TableColumn fx:id="captionCol" maxWidth="2000.0" prefWidth="100.0" text="Caption" />
+            <TableColumn fx:id="imageCol" maxWidth="2000.0" prefWidth="100.0" text="Image" />
+            <TableColumn fx:id="nameCol" maxWidth="2000.0" prefWidth="100.0" text="Name" />
             </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
         </TableView>
-        <Button fx:id="btn_search" layoutX="686.0" layoutY="158.0" mnemonicParsing="false" onAction="#btn_search" prefHeight="30.0" prefWidth="200.0" text="Search" textFill="WHITE" AnchorPane.rightAnchor="14.0">
+        <Button fx:id="btn_delete" layoutX="612.0" layoutY="248.99999999999997" mnemonicParsing="false" onAction="#btn_delete" prefHeight="30.0" prefWidth="250.0" text="Delete" textFill="WHITE" AnchorPane.bottomAnchor="320.6" AnchorPane.rightAnchor="37.60000000000002">
             <font>
                 <Font name="Century Gothic Bold" size="14.0" />
             </font>
         </Button>
-        <Button fx:id="btn_delete" layoutX="686.0" layoutY="544.0" mnemonicParsing="false" onAction="#btn_delete" prefHeight="30.0" prefWidth="200.0" text="Delete" textFill="WHITE" AnchorPane.bottomAnchor="25.600000000000023" AnchorPane.rightAnchor="14.0">
+        <Button fx:id="btn_edit" layoutX="612.0" layoutY="183.0" mnemonicParsing="false" onAction="#btn_edit" prefHeight="30.0" prefWidth="250.0" text="Edit" textFill="WHITE" AnchorPane.rightAnchor="37.60000000000002" AnchorPane.topAnchor="183.0">
             <font>
                 <Font name="Century Gothic Bold" size="14.0" />
             </font>
         </Button>
-        <Button fx:id="btn_edit" layoutX="686.0" layoutY="225.0" mnemonicParsing="false" onAction="#btn_edit" prefHeight="30.0" prefWidth="200.0" text="Edit" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="225.0">
-            <font>
-                <Font name="Century Gothic Bold" size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="btn_add" layoutX="686.0" layoutY="269.0" mnemonicParsing="false" onAction="#btn_add" prefHeight="30.0" prefWidth="200.0" text="Add a new one" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="269.0">
-            <font>
-                <Font name="Century Gothic Bold" size="14.0" />
-            </font>
-        </Button>
-        <TextField fx:id="txt_Search" layoutX="686.0" layoutY="125.0" prefHeight="25.0" prefWidth="200.0" stylesheets="@../css/style.css" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="125.0" />
+        <TextField fx:id="txt_Search" layoutX="612.0" layoutY="134.0" prefHeight="25.0" prefWidth="250.0" stylesheets="@../css/style.css" AnchorPane.rightAnchor="37.60000000000002" AnchorPane.topAnchor="134.0" />
         <HBox alignment="TOP_RIGHT" layoutX="650.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0" AnchorPane.rightAnchor="0.0">
             <children>
                 <Button mnemonicParsing="false" onAction="#btn_minWindow" style="-fx-background-color: transparent;">
@@ -73,7 +65,7 @@
             <children>
                 <VBox layoutY="101.0" prefHeight="150.0" prefWidth="50.0" AnchorPane.topAnchor="101.0">
                     <children>
-                        <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#btn_Back" prefHeight="40.0" prefWidth="60.0" stylesheets="@../css/sidebutton.css" text="Back" textFill="WHITE">
+                        <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#btn_back" prefHeight="40.0" prefWidth="60.0" stylesheets="@../css/sidebutton.css" text="Back" textFill="WHITE">
                             <graphic>
                                 <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -134,5 +126,48 @@
                 </Button>
             </children>
         </HBox>
+      <Label layoutX="84.0" layoutY="109.0" text="Pictures" textFill="#183b62" AnchorPane.leftAnchor="84.0" AnchorPane.topAnchor="109.0">
+         <font>
+            <Font name="Century Gothic Bold" size="18.0" />
+         </font>
+      </Label>
+      <TableView fx:id="pictureTable1" layoutX="83.0" layoutY="376.0" minHeight="210.0" minWidth="500.0" prefHeight="210.0" prefWidth="500.0" stylesheets="@../css/table.css" AnchorPane.bottomAnchor="13.599999999999994" AnchorPane.leftAnchor="83.0" AnchorPane.topAnchor="376.0">
+         <columns>
+            <TableColumn fx:id="idCol1" maxWidth="1000.0" prefWidth="50.0" text="Id" />
+            <TableColumn fx:id="userIdCol1" prefWidth="50.0" text="User id" />
+            <TableColumn fx:id="urlCol1" prefWidth="100.0" text="Url" />
+            <TableColumn fx:id="captionCol1" maxWidth="2000.0" prefWidth="100.0" text="Caption" />
+            <TableColumn fx:id="imageCol1" maxWidth="2000.0" prefWidth="100.0" text="Image" />
+            <TableColumn fx:id="nameCol1" maxWidth="2000.0" prefWidth="100.0" text="Name" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Label layoutX="84.0" layoutY="352.0" text="Categories" textFill="#183b62" AnchorPane.leftAnchor="84.0" AnchorPane.topAnchor="352.0">
+         <font>
+            <Font name="Century Gothic Bold" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="25.0" fitWidth="21.0" layoutX="839.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/search.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="612.0" layoutY="376.0" mnemonicParsing="false" onAction="#btn_add" prefHeight="30.0" prefWidth="250.0" text="Add a new one" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="612.0" layoutY="428.0" mnemonicParsing="false" onAction="#btn_editCategory" prefHeight="30.0" prefWidth="250.0" text="Edit" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="612.0" layoutY="555.0" mnemonicParsing="false" onAction="#btn_deleteCategory" prefHeight="30.0" prefWidth="250.0" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic Bold" size="14.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

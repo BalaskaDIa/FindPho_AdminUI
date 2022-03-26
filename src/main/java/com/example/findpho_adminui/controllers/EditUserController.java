@@ -5,10 +5,7 @@ import com.example.findpho_adminui.api.UserApi;
 import com.example.findpho_adminui.classes.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -38,13 +35,11 @@ public class EditUserController extends Controller {
     @FXML
     private Label lbl_Email;
     @FXML
-    private Label lbl_Admin;
+    private ToggleSwitch lbl_Admin;
 
     private User updateUser;
     private double x, y = 0;
 
-    @FXML
-    private Spinner<Integer> spinner_Admin;
     @FXML
     private ToggleSwitch ts_Admin;
 
@@ -136,9 +131,14 @@ public class EditUserController extends Controller {
     }
 
     private void setValue() {
+        lbl_Name.setText(updateUser.getName());
+        lbl_Username.setText(updateUser.getUsername());
+        lbl_Email.setText(updateUser.getEmail());
+        lbl_Admin.setSelected(updateUser.isAdmin());
+
         txt_Name.setText(updateUser.getName());
         txt_Username.setText(updateUser.getUsername());
         txt_Email.setText(updateUser.getEmail());
-        ts_Admin.setSelected(updateUser.getAdmin());
+        ts_Admin.setSelected(updateUser.isAdmin());
     }
 }

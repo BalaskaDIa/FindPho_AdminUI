@@ -2,19 +2,15 @@ package com.example.findpho_adminui.classes;
 
 public class Picture {
     private int id;
-    private int userId;
+    private int user_id;
     private String url;
-    private String latitude;
-    private String longitude;
     private String caption;
     private String image;
 
-    public Picture(int id, int userId, String url, String latitude, String longitude, String caption, String image) {
+    public Picture(int id, int user_id, String url, String caption, String image) {
         this.id = id;
-        this.userId = userId;
+        this.user_id = user_id;
         this.url = url;
-        this.latitude = latitude;
-        this.longitude = longitude;
         this.caption = caption;
         this.image = image;
     }
@@ -23,12 +19,8 @@ public class Picture {
         return id;
     }
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public int getUser_id() {
+        return user_id;
     }
 
     public String getUrl() {
@@ -37,22 +29,6 @@ public class Picture {
 
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    public String getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
-    }
-
-    public String getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
     }
 
     public String getCaption() {

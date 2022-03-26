@@ -3,6 +3,10 @@ package com.example.findpho_adminui.controllers;
 import com.example.findpho_adminui.Controller;
 import com.example.findpho_adminui.api.UserApi;
 import com.example.findpho_adminui.classes.User;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -16,7 +20,6 @@ import javafx.stage.Stage;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
-import java.util.List;
 
 public class UserController extends Controller {
 
@@ -32,10 +35,8 @@ public class UserController extends Controller {
     @FXML
     private TableColumn <User,String> emailCol;
     @FXML
-    private TableColumn <User,Integer> adminCol;
+    private TableColumn <User,Boolean> adminCol;
 
-    @FXML
-    private Button btn_search;
     @FXML
     private Button btn_edit;
     @FXML
@@ -54,6 +55,7 @@ public class UserController extends Controller {
     private Pane pane;
     private Stage stage;
     private double x, y = 0;
+    private final ObservableList<User> userList = FXCollections.observableArrayList();
 
     public void initialize() {
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -62,22 +64,39 @@ public class UserController extends Controller {
         emailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
         adminCol.setCellValueFactory(new PropertyValueFactory<>("admin"));
         addList();
+        search();
     }
 
     private void addList() {
         try {
-            List<User> userList = UserApi.getUser();
-            userTable.getItems().clear();
-            for (User user : userList) {
-                userTable.getItems().add(user);
-            }
+            userList.clear();
+            userList.addAll(UserApi.getUser());
         }catch (IOException e) {
             error(e);
         }
     }
 
-    @FXML
-    public void btn_search(ActionEvent actionEvent) {
+    private void search() {
+        FilteredList<User> filteredData = new FilteredList<>(userList, b -> true);
+
+        txt_Search.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(user -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (user.getName().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (user.getUsername().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else return user.getEmail().toLowerCase().contains(lowerCaseFilter);
+            });
+        });
+        SortedList<User> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(userTable.comparatorProperty());
+        userTable.setItems(sortedData);
     }
 
     @FXML
@@ -163,7 +182,7 @@ public class UserController extends Controller {
     }
 
     @FXML
-    public void btn_Back(ActionEvent actionEvent) {
+    public void btn_back(ActionEvent actionEvent) {
         try {
             Controller add = newWindow("views/main-view.fxml", "FindPho",
                     900, 650);

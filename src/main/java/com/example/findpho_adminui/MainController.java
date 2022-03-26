@@ -25,9 +25,6 @@ public class MainController extends Controller {
 
     private double x, y = 0;
 
-    @FXML
-    private AnchorPane sideBar;
-
     public void initialize() throws IOException {
         changeStage("views/home-view.fxml");
     }

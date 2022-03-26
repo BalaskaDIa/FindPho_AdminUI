@@ -27,7 +27,7 @@ public class HomeController extends Controller{
     @FXML
     public void btn_Catalog(ActionEvent actionEvent) {
         try {
-            Controller add = newWindow("views/catalog-view.fxml", "Catalog",
+            Controller add = newWindow("views/picture-view.fxml", "Catalog",
                     900, 600);
             add.getStage().show();
         } catch (Exception e) {
