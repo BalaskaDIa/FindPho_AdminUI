@@ -108,8 +108,6 @@ public class UserController extends Controller {
         } catch (Exception e) {
             error(e);
         }
-        stage = (Stage) mainAnchor.getScene().getWindow();
-        stage.close();
     }
 
     @FXML

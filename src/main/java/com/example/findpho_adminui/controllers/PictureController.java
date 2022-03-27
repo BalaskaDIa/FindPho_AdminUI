@@ -1,10 +1,10 @@
 package com.example.findpho_adminui.controllers;
 
 import com.example.findpho_adminui.Controller;
+import com.example.findpho_adminui.api.CategoryApi;
 import com.example.findpho_adminui.api.PictureApi;
-import com.example.findpho_adminui.api.UserApi;
+import com.example.findpho_adminui.classes.Category;
 import com.example.findpho_adminui.classes.Picture;
-import com.example.findpho_adminui.classes.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -20,9 +20,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.input.MouseEvent;
+import java.util.List;
 
 import java.io.IOException;
-import java.util.List;
 
 public class PictureController extends Controller {
     @javafx.fxml.FXML
@@ -46,38 +46,30 @@ public class PictureController extends Controller {
     @FXML
     private TableColumn <Picture,Integer> userIdCol;
     @FXML
-    private TableColumn <Picture,Integer> imageCol;
-    @FXML
     private TableColumn <Picture,String> urlCol;
     @FXML
     private TableView <Picture> pictureTable;
     @FXML
     private TableColumn <Picture,String> captionCol;
+    @FXML
+    private TableColumn <Category,String> categoryNameCol;
+    @FXML
+    private TableColumn <Category, Integer> categoryIdCol;
+    @FXML
+    private TableView <Category> categoryTable;
 
     private final ObservableList<Picture> pictureList = FXCollections.observableArrayList();
-    @FXML
-    private TableColumn <Picture,String> nameCol;
-    @FXML
-    private TableColumn idCol1;
-    @FXML
-    private TableView pictureTable1;
-    @FXML
-    private TableColumn userIdCol1;
-    @FXML
-    private TableColumn imageCol1;
-    @FXML
-    private TableColumn nameCol1;
-    @FXML
-    private TableColumn urlCol1;
-    @FXML
-    private TableColumn captionCol1;
+    private final ObservableList<Category> categoryList = FXCollections.observableArrayList();
+
 
     public void initialize() {
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         userIdCol.setCellValueFactory(new PropertyValueFactory<>("user_id"));
         urlCol.setCellValueFactory(new PropertyValueFactory<>("url"));
         captionCol.setCellValueFactory(new PropertyValueFactory<>("caption"));
-        imageCol.setCellValueFactory(new PropertyValueFactory<>("image"));
+
+        categoryIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        categoryNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         addList();
         search();
     }
@@ -86,6 +78,11 @@ public class PictureController extends Controller {
         try {
             pictureList.clear();
             pictureList.addAll(PictureApi.getPicture());
+            List<Category> categoryList = CategoryApi.getCategory();
+            categoryTable.getItems().clear();
+            for (Category category : categoryList) {
+                categoryTable.getItems().add(category);
+            }
         }catch (IOException e) {
             error(e);
         }
@@ -198,13 +195,51 @@ public class PictureController extends Controller {
 
     @FXML
     public void btn_add(ActionEvent actionEvent) {
+        try {
+            Controller add = newWindow("views/addCategory-view.fxml", "Add Category",
+                    400, 200);
+            add.getStage().show();
+        } catch (Exception e) {
+            error(e);
+        }
     }
 
     @FXML
     public void btn_editCategory(ActionEvent actionEvent) {
+        int selectedIndex = categoryTable.getSelectionModel().getSelectedIndex();
+        if (selectedIndex == -1) {
+            alert("First select an item from the table");
+            return;
+        }
+        Category updateCategory = categoryTable.getSelectionModel().getSelectedItem();
+        try {
+            EditCategoryController modify = (EditCategoryController) newWindow("views/editCategory-view.fxml",
+                    "Edit Category", 400, 200);
+            modify.setUpdateCategory(updateCategory);
+            modify.getStage().setOnHiding(event -> categoryTable.refresh());
+            modify.getStage().show();
+        } catch (IOException e) {
+            error(e);
+        }
     }
 
     @FXML
     public void btn_deleteCategory(ActionEvent actionEvent) {
+        int selectedIndex = categoryTable.getSelectionModel().getSelectedIndex();
+        if (selectedIndex == -1) {
+            alert("First select an item from the table");
+            return;
+        }
+        Category categoryDeletion = categoryTable.getSelectionModel().getSelectedItem();
+        if (!confirm("Are you sure you want to delete the category below : " + categoryDeletion.getName())) {
+            return;
+        }
+        try {
+            boolean success = CategoryApi.deleteCategory(categoryDeletion.getId());
+            alert(success ? "Delete successful" : "Delete failed");
+            addList();
+        } catch (IOException e) {
+            error(e);
+        }
     }
 }

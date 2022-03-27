@@ -40,13 +40,6 @@ public class EditPictureController extends Controller{
 
     @FXML
     public void btn_closeWindowData(ActionEvent actionEvent) {
-        try {
-            Controller add = newWindow("views/picture-view.fxml", "Catalog",
-                    900, 600);
-            add.getStage().show();
-        } catch (Exception e) {
-            error(e);
-        }
         stage = (Stage) mainAnchor.getScene().getWindow();
         stage.close();
     }
@@ -68,10 +61,6 @@ public class EditPictureController extends Controller{
         }
         if (caption.isEmpty()){
             alert("Caption is required!");
-            return;
-        }
-        if (image.isEmpty()){
-            alert("Image is required!");
             return;
         }
 
@@ -104,13 +93,6 @@ public class EditPictureController extends Controller{
 
     @FXML
     public void btn_closeWindowUpdate(ActionEvent actionEvent) {
-        try {
-            Controller add = newWindow("views/picture-view.fxml", "Catalog",
-                    900, 600);
-            add.getStage().show();
-        } catch (Exception e) {
-            error(e);
-        }
         stage = (Stage) mainAnchor.getScene().getWindow();
         stage.close();
     }

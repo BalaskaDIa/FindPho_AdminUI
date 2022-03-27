@@ -59,26 +59,12 @@ public class EditUserController extends Controller {
 
     @FXML
     public void btn_closeWindowData(ActionEvent actionEvent) {
-        try {
-            Controller add = newWindow("views/user-view.fxml", "Users",
-                    900, 600);
-            add.getStage().show();
-        } catch (Exception e) {
-            error(e);
-        }
         stage = (Stage) mainAnchor.getScene().getWindow();
         stage.close();
     }
 
     @FXML
     public void btn_closeWindowUpdate(ActionEvent actionEvent) {
-        try {
-            Controller add = newWindow("views/user-view.fxml", "Users",
-                    900, 600);
-            add.getStage().show();
-        } catch (Exception e) {
-            error(e);
-        }
         stage = (Stage) mainAnchor.getScene().getWindow();
         stage.close();
     }
