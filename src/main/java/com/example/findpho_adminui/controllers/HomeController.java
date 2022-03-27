@@ -36,4 +36,17 @@ public class HomeController extends Controller{
         stage = (Stage) contentHome.getScene().getWindow();
         stage.close();
     }
+
+    @FXML
+    public void btn_Statistics(ActionEvent actionEvent) {
+        try {
+            Controller add = newWindow("views/category-view.fxml", "Categories",
+                    900, 600);
+            add.getStage().show();
+        } catch (Exception e) {
+            error(e);
+        }
+        stage = (Stage) contentHome.getScene().getWindow();
+        stage.close();
+    }
 }

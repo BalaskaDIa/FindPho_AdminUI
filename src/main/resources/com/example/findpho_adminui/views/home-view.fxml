@@ -33,11 +33,11 @@
                   <Font name="Century Gothic Bold" size="14.0" />
                </font>
             </Button>
-            <Button alignment="CENTER" contentDisplay="TOP" maxHeight="200.0" maxWidth="300.0" minHeight="150.0" minWidth="217.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="217.0" stylesheets="@../css/style.css" text="Statistics" textFill="WHITE" GridPane.columnIndex="2" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
+            <Button alignment="CENTER" contentDisplay="TOP" maxHeight="200.0" maxWidth="300.0" minHeight="150.0" minWidth="217.0" mnemonicParsing="false" onAction="#btn_Statistics" prefHeight="150.0" prefWidth="217.0" stylesheets="@../css/style.css" text="Categories" textFill="WHITE" GridPane.columnIndex="2" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icons/statistics.png" />
+                        <Image url="@../icons/category.png" />
                      </image>
                   </ImageView>
                </graphic>

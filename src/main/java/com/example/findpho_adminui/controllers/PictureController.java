@@ -25,6 +25,7 @@ import java.util.List;
 import java.io.IOException;
 
 public class PictureController extends Controller {
+
     @javafx.fxml.FXML
     private TextField txt_Search;
     @javafx.fxml.FXML
@@ -33,8 +34,6 @@ public class PictureController extends Controller {
     private AnchorPane mainAnchor;
     @javafx.fxml.FXML
     private AnchorPane sideBar;
-    @javafx.fxml.FXML
-    private Button btn_delete;
 
     @FXML
     private Pane pane;
@@ -51,25 +50,14 @@ public class PictureController extends Controller {
     private TableView <Picture> pictureTable;
     @FXML
     private TableColumn <Picture,String> captionCol;
-    @FXML
-    private TableColumn <Category,String> categoryNameCol;
-    @FXML
-    private TableColumn <Category, Integer> categoryIdCol;
-    @FXML
-    private TableView <Category> categoryTable;
 
     private final ObservableList<Picture> pictureList = FXCollections.observableArrayList();
-    private final ObservableList<Category> categoryList = FXCollections.observableArrayList();
-
 
     public void initialize() {
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         userIdCol.setCellValueFactory(new PropertyValueFactory<>("user_id"));
         urlCol.setCellValueFactory(new PropertyValueFactory<>("url"));
         captionCol.setCellValueFactory(new PropertyValueFactory<>("caption"));
-
-        categoryIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-        categoryNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         addList();
         search();
     }
@@ -78,11 +66,6 @@ public class PictureController extends Controller {
         try {
             pictureList.clear();
             pictureList.addAll(PictureApi.getPicture());
-            List<Category> categoryList = CategoryApi.getCategory();
-            categoryTable.getItems().clear();
-            for (Category category : categoryList) {
-                categoryTable.getItems().add(category);
-            }
         }catch (IOException e) {
             error(e);
         }
@@ -191,55 +174,5 @@ public class PictureController extends Controller {
     @FXML
     public void btn_closeWindow(ActionEvent actionEvent) {
         Controller.closeWindow(actionEvent);
-    }
-
-    @FXML
-    public void btn_add(ActionEvent actionEvent) {
-        try {
-            Controller add = newWindow("views/addCategory-view.fxml", "Add Category",
-                    400, 200);
-            add.getStage().show();
-        } catch (Exception e) {
-            error(e);
-        }
-    }
-
-    @FXML
-    public void btn_editCategory(ActionEvent actionEvent) {
-        int selectedIndex = categoryTable.getSelectionModel().getSelectedIndex();
-        if (selectedIndex == -1) {
-            alert("First select an item from the table");
-            return;
-        }
-        Category updateCategory = categoryTable.getSelectionModel().getSelectedItem();
-        try {
-            EditCategoryController modify = (EditCategoryController) newWindow("views/editCategory-view.fxml",
-                    "Edit Category", 400, 200);
-            modify.setUpdateCategory(updateCategory);
-            modify.getStage().setOnHiding(event -> categoryTable.refresh());
-            modify.getStage().show();
-        } catch (IOException e) {
-            error(e);
-        }
-    }
-
-    @FXML
-    public void btn_deleteCategory(ActionEvent actionEvent) {
-        int selectedIndex = categoryTable.getSelectionModel().getSelectedIndex();
-        if (selectedIndex == -1) {
-            alert("First select an item from the table");
-            return;
-        }
-        Category categoryDeletion = categoryTable.getSelectionModel().getSelectedItem();
-        if (!confirm("Are you sure you want to delete the category below : " + categoryDeletion.getName())) {
-            return;
-        }
-        try {
-            boolean success = CategoryApi.deleteCategory(categoryDeletion.getId());
-            alert(success ? "Delete successful" : "Delete failed");
-            addList();
-        } catch (IOException e) {
-            error(e);
-        }
     }
 }
