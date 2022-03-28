@@ -83,7 +83,7 @@ public class MainController extends Controller {
     }
 
     @FXML
-    public void btn_Settings(ActionEvent actionEvent) throws IOException {
-        changeStage("views/settings-view.fxml");
+    public void btn_Statistics(ActionEvent actionEvent) throws IOException {
+        changeStage("views/statistics-view.fxml");
     }
 }

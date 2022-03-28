@@ -13,9 +13,9 @@
 
 <AnchorPane fx:id="mainAnchor" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.findpho_adminui.MainController">
     <children>
-        <AnchorPane fx:id="sideBar" prefHeight="600.0" prefWidth="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <AnchorPane fx:id="sideBar" prefHeight="650.0" prefWidth="60.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <VBox layoutY="157.0" prefHeight="150.0" prefWidth="50.0" AnchorPane.topAnchor="157.0">
+                <VBox layoutY="157.0" prefHeight="189.0" prefWidth="59.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="157.0">
                     <children>
                         <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#btn_Home" prefHeight="40.0" prefWidth="60.0" stylesheets="@../css/sidebutton.css" text="Home" textFill="WHITE">
                             <graphic>
@@ -29,14 +29,14 @@
                                 <Font name="Century Gothic Bold" size="10.0" />
                             </font>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#btn_Settings" prefHeight="40.0" prefWidth="40.0" stylesheets="@../css/sidebutton.css" text="Settings" textFill="WHITE">
+                        <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#btn_Statistics" prefHeight="40.0" prefWidth="62.0" stylesheets="@../css/sidebutton.css" text="Statistics" textFill="WHITE">
                             <font>
                                 <Font name="Century Gothic Bold" size="10.0" />
                             </font>
                             <graphic>
                                 <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../icons/settings.png" />
+                                        <Image url="@../icons/statistics.png" />
                                     </image>
                                 </ImageView>
                             </graphic>
