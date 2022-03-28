@@ -44,7 +44,10 @@ public class LoginController extends Controller {
 
     @FXML
     public void btn_closeWindow(ActionEvent actionEvent) {
-        Controller.closeWindow(actionEvent);
+        if (!(confirm("Do you really want to leave?"))) {
+            return;
+        }
+        System.exit(0);
     }
 
     @FXML

@@ -10,6 +10,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class MainController extends Controller {
 
@@ -35,7 +36,7 @@ public class MainController extends Controller {
     }
 
     private void changeStage(String fxml) throws IOException {
-        AnchorPane view = FXMLLoader.load(getClass().getResource(fxml));
+        AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxml)));
         contentArea.setCenter(view);
     }
 
@@ -66,20 +67,25 @@ public class MainController extends Controller {
 
     @FXML
     public void btn_closeWindow(ActionEvent actionEvent) {
-        Controller.closeWindow(actionEvent);
+        if (!(confirm("Do you really want to leave?"))) {
+            return;
+        }
+        System.exit(0);
     }
 
     @FXML
     public void btn_Logout(ActionEvent actionEvent) throws IOException {
-        try {
-            Controller add = newWindow("views/login-view.fxml", "Login",
-                    600, 500);
-            add.getStage().show();
-        } catch (Exception e) {
-            error(e);
+        if (confirm("You will be returned to the login screen.")) {
+            try {
+                Controller add = newWindow("views/login-view.fxml", "Login",
+                        600, 500);
+                add.getStage().show();
+            } catch (Exception e) {
+                error(e);
+            }
+            stage = (Stage) mainAnchor.getScene().getWindow();
+            stage.close();
         }
-        stage = (Stage) mainAnchor.getScene().getWindow();
-        stage.close();
     }
 
     @FXML

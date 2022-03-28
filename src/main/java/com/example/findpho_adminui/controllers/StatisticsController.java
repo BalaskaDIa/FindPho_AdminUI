@@ -2,7 +2,6 @@ package com.example.findpho_adminui.controllers;
 
 import com.example.findpho_adminui.Controller;
 import com.example.findpho_adminui.api.StatisticsApi;
-import com.example.findpho_adminui.api.UserApi;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
@@ -22,7 +21,6 @@ public class StatisticsController extends Controller {
     private int users;
     private int photos;
     private int categories;
-
 
     public void initialize() throws IOException {
         users = StatisticsApi.allUsers();

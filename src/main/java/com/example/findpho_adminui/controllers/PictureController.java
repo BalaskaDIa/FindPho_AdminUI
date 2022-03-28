@@ -98,7 +98,7 @@ public class PictureController extends Controller {
             return;
         }
         Picture pictureDeletion = pictureTable.getSelectionModel().getSelectedItem();
-        if (!confirm("Are you sure you want to delete the picture below : " + pictureDeletion.getCaption())) {
+        if (!confirm("Are you sure, you want to delete this file?")) {
             return;
         }
         try {
@@ -173,6 +173,9 @@ public class PictureController extends Controller {
 
     @FXML
     public void btn_closeWindow(ActionEvent actionEvent) {
-        Controller.closeWindow(actionEvent);
+        if (!(confirm("Do you really want to leave?"))) {
+            return;
+        }
+        System.exit(0);
     }
 }

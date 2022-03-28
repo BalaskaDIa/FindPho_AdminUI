@@ -40,14 +40,19 @@ public class Controller {
         dialogPane.getStylesheets().add(getClass().getResource("/com/example/findpho_adminui/css/alert.css").toExternalForm());
         dialogPane.getStyleClass().add("dialogPane");
         Stage stage = (Stage) dialogPane.getScene().getWindow();
-        stage.getIcons().add(new Image(this.getClass().getResource("/com/example/findpho_adminui/icons/blue.png").toExternalForm()));
+        stage.getIcons().add(new Image(this.getClass().getResource("/com/example/findpho_adminui/icons/findpho.jpg").toExternalForm()));
         alert.show();
     }
 
-    protected static boolean confirm(String uzenet){
+    protected boolean confirm(String uzenet){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Sure?");
+        alert.setTitle("Are you sure?");
         alert.setHeaderText(uzenet);
+        dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(getClass().getResource("/com/example/findpho_adminui/css/alert.css").toExternalForm());
+        dialogPane.getStyleClass().add("dialogPane");
+        Stage stage = (Stage) dialogPane.getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("/com/example/findpho_adminui/icons/findpho.jpg").toExternalForm()));
         Optional<ButtonType> result = alert.showAndWait();
         return result.get() == ButtonType.OK;
     }
@@ -58,6 +63,11 @@ public class Controller {
         alert.setTitle("Something went wrong");
         alert.setHeaderText(e.getClass().toString());
         alert.setContentText(e.getMessage());
+        dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(Controller.class.getResource("/com/example/findpho_adminui/css/alert.css").toExternalForm());
+        dialogPane.getStyleClass().add("dialogPane");
+        Stage stage = (Stage) dialogPane.getScene().getWindow();
+        stage.getIcons().add(new Image(Controller.class.getResource("/com/example/findpho_adminui/icons/findpho.jpg").toExternalForm()));
         Timer alertTimer = new Timer();
         alertTimer.schedule(new TimerTask() {
             @Override
@@ -79,12 +89,12 @@ public class Controller {
         return controller;
     }
 
-    protected static void closeWindow(ActionEvent actionEvent) {
+    /*protected void closeWindow(ActionEvent actionEvent) {
         if (!(confirm("Are u sure?"))) {
             return;
         }
         System.exit(0);
-    }
+    }*/
 
     protected void maximizeWindowToggle(Stage stage) {
         if (stage.isMaximized()) {

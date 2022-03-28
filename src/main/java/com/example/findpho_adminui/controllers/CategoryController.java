@@ -132,7 +132,7 @@ public class CategoryController extends Controller {
             return;
         }
         Category categoryDeletion = categoryTable.getSelectionModel().getSelectedItem();
-        if (!confirm("Are you sure you want to delete the category below : " + categoryDeletion.getName())) {
+        if (!confirm("Are you sure, you want to delete the category below : " + categoryDeletion.getName())) {
             return;
         }
         try {
@@ -151,7 +151,12 @@ public class CategoryController extends Controller {
     }
 
     @FXML
-    public void btn_closeWindow(ActionEvent actionEvent) { Controller.closeWindow(actionEvent); }
+    public void btn_closeWindow(ActionEvent actionEvent) {
+        if (!(confirm("Do you really want to leave?"))) {
+            return;
+        }
+        System.exit(0);
+    }
 
 
     @FXML
