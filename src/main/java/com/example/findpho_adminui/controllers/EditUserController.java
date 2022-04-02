@@ -69,10 +69,6 @@ public class EditUserController extends Controller {
         stage.close();
     }
 
-    public User getUpdateUser() {
-        return updateUser;
-    }
-
     public void setUpdateUser(User updateUser) {
         this.updateUser = updateUser;
         setValue();
@@ -95,6 +91,10 @@ public class EditUserController extends Controller {
         }
         if (email.isEmpty()){
             alert("Email is required!");
+            return;
+        }
+        if (!email.contains("@")) {
+            alert("The email address you entered is invalid.");
             return;
         }
 

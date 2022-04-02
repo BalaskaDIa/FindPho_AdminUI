@@ -107,7 +107,7 @@
                 </Button>
             </children>
         </HBox>
-      <BorderPane fx:id="contentArea" layoutX="53.0" layoutY="150.0" prefHeight="450.0" prefWidth="850.0" />
+      <BorderPane fx:id="contentArea" layoutX="53.0" layoutY="150.0" prefHeight="450.0" prefWidth="850.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="150.0" />
 
     </children>
 </AnchorPane>

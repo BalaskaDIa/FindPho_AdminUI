@@ -1,32 +1,30 @@
 package com.example.findpho_adminui.controllers;
 
 import com.example.findpho_adminui.Controller;
-import com.example.findpho_adminui.MainController;
 import com.example.findpho_adminui.api.LoginApi;
 import com.example.findpho_adminui.classes.Login;
 import com.example.findpho_adminui.classes.Token;
 import com.example.findpho_adminui.classes.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.scene.input.MouseEvent;
+import java.awt.*;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public class LoginController extends Controller {
 
     @FXML
     private TextField txt_Username;
     @FXML
-    private Label lbl_ForgotPass;
-    @FXML
     private TextField txt_Password;
-    @FXML
-    private Label lbl_CreateAcc;
     @FXML
     private Pane pane;
     @FXML
@@ -76,13 +74,18 @@ public class LoginController extends Controller {
                 Controller add = newWindow("views/main-view.fxml", "FindPho",
                         900, 650);
                 add.getStage().show();
+                stage = (Stage) mainAnchor.getScene().getWindow();
+                stage.close();
             } else {
-                alert("Bruh");
+                alert("You do not have sufficient privileges! Log on again with administrator privileges.");
             }
         } catch (IOException e) {
             error(e);
         }
-        stage = (Stage) mainAnchor.getScene().getWindow();
-        stage.close();
+    }
+
+    @FXML
+    public void goToRegistration(ActionEvent event) throws URISyntaxException, IOException {
+        Desktop.getDesktop().browse(new URI("http://localhost:8000/register"));
     }
 }

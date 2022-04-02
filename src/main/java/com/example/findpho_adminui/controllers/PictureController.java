@@ -1,7 +1,6 @@
 package com.example.findpho_adminui.controllers;
 
 import com.example.findpho_adminui.Controller;
-import com.example.findpho_adminui.api.CategoryApi;
 import com.example.findpho_adminui.api.PictureApi;
 import com.example.findpho_adminui.classes.Category;
 import com.example.findpho_adminui.classes.Picture;
@@ -20,7 +19,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.input.MouseEvent;
-import java.util.List;
 
 import java.io.IOException;
 
@@ -45,19 +43,25 @@ public class PictureController extends Controller {
     @FXML
     private TableColumn <Picture,Integer> userIdCol;
     @FXML
-    private TableColumn <Picture,String> urlCol;
-    @FXML
     private TableView <Picture> pictureTable;
     @FXML
-    private TableColumn <Picture,String> captionCol;
+    private TableColumn <Picture,String> imageCol;
+    @FXML
+    private TableColumn <Picture,String> titleCol;
+    @FXML
+    private TableColumn <Picture,String> descriptionCol;
+    @FXML
+    private TableColumn <Picture,String> categoryCol;
 
     private final ObservableList<Picture> pictureList = FXCollections.observableArrayList();
 
     public void initialize() {
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         userIdCol.setCellValueFactory(new PropertyValueFactory<>("user_id"));
-        urlCol.setCellValueFactory(new PropertyValueFactory<>("url"));
-        captionCol.setCellValueFactory(new PropertyValueFactory<>("caption"));
+        imageCol.setCellValueFactory(new PropertyValueFactory<>("image"));
+        titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
+        descriptionCol.setCellValueFactory(new PropertyValueFactory<>("description"));
+        categoryCol.setCellValueFactory(new PropertyValueFactory<>("category"));
         addList();
         search();
     }
@@ -98,7 +102,7 @@ public class PictureController extends Controller {
             return;
         }
         Picture pictureDeletion = pictureTable.getSelectionModel().getSelectedItem();
-        if (!confirm("Are you sure, you want to delete this file?")) {
+        if (!confirm("Are you sure you want to delete this file?")) {
             return;
         }
         try {
@@ -140,11 +144,13 @@ public class PictureController extends Controller {
 
                 String lowerCaseFilter = newValue.toLowerCase();
 
-                if (picture.getUrl().toLowerCase().contains(lowerCaseFilter)) {
+                if (picture.getImage().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                } else if (picture.getCaption().toLowerCase().contains(lowerCaseFilter)) {
+                } else if (picture.getTitle().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                } else return picture.getImage().toLowerCase().contains(lowerCaseFilter);
+                } else if (picture.getDescription().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else return picture.getCategory().toLowerCase().contains(lowerCaseFilter);
             });
         });
         SortedList<Picture> sortedData = new SortedList<>(filteredData);

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -8,8 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="450.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.findpho_adminui.controllers.StatisticsController">
+<AnchorPane prefHeight="500.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.findpho_adminui.controllers.StatisticsController">
    <children>
       <HBox alignment="CENTER" layoutX="25.0" layoutY="29.0" prefHeight="120.0" prefWidth="800.0" spacing="30.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
          <children>
@@ -72,5 +74,13 @@
             </Pane>
          </children>
       </HBox>
+      <BarChart fx:id="barChart" layoutX="67.0" layoutY="167.0" prefHeight="332.0" prefWidth="699.0" stylesheets="@../css/chart.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="168.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
    </children>
 </AnchorPane>

@@ -132,7 +132,7 @@ public class CategoryController extends Controller {
             return;
         }
         Category categoryDeletion = categoryTable.getSelectionModel().getSelectedItem();
-        if (!confirm("Are you sure, you want to delete the category below : " + categoryDeletion.getName())) {
+        if (!confirm("Are you sure you want to delete the below category: " + categoryDeletion.getName() + " ?") ) {
             return;
         }
         try {

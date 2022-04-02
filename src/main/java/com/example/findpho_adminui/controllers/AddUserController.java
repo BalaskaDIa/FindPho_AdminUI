@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import javafx.scene.input.MouseEvent;
 import org.controlsfx.control.ToggleSwitch;
 
+import java.io.IOException;
 
 public class AddUserController extends Controller {
 
@@ -34,7 +35,7 @@ public class AddUserController extends Controller {
 
     @FXML
     public void dragPane(MouseEvent event) {
-        Stage stage = (Stage)pane.getScene().getWindow();
+        Stage stage = (Stage) pane.getScene().getWindow();
         stage.setX(event.getScreenX() - x);
         stage.setY(event.getScreenY() - y);
     }
@@ -52,30 +53,36 @@ public class AddUserController extends Controller {
     }
 
     @FXML
-    public void btn_Save(ActionEvent actionEvent) {
+    public void btn_AddSave(ActionEvent actionEvent) throws IOException {
         String name = txt_Name.getText().trim();
         String username = txt_Username.getText().trim();
         String email = txt_Email.getText().trim();
         boolean admin = ts_Admin.isSelected();
 
-        if (name.isEmpty()){
+        if (name.isEmpty()) {
             alert("Name is required!");
             return;
         }
-        if (username.isEmpty()){
+        if (username.isEmpty()) {
             alert("Username is required!");
             return;
         }
-        if (email.isEmpty()){
-            alert("Email is required!");
+
+        if (email.isEmpty()) {
+            alert("Email address is required!");
+            return;
+        }
+        if (!email.contains("@")) {
+            alert("The email address you entered is invalid.");
             return;
         }
 
         try {
             User newUser = new User(0, name, username, email, admin);
             User created = UserApi.postUser(newUser);
-            if (created != null){
+            if (created != null) {
                 alert("Creation successful");
+                this.stage.close();
             } else {
                 alert("Creation failed");
             }

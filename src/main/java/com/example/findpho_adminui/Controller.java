@@ -1,7 +1,6 @@
 package com.example.findpho_adminui;
 
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -88,13 +87,6 @@ public class Controller {
         controller.stage = stage;
         return controller;
     }
-
-    /*protected void closeWindow(ActionEvent actionEvent) {
-        if (!(confirm("Are u sure?"))) {
-            return;
-        }
-        System.exit(0);
-    }*/
 
     protected void maximizeWindowToggle(Stage stage) {
         if (stage.isMaximized()) {

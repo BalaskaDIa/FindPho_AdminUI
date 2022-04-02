@@ -25,7 +25,6 @@ public class UserController extends Controller {
 
     @FXML
     private TableView<User> userTable;
-
     @FXML
     private TableColumn <User,Integer> idCol;
     @FXML
@@ -38,21 +37,14 @@ public class UserController extends Controller {
     private TableColumn <User,Boolean> adminCol;
 
     @FXML
-    private Button btn_edit;
-    @FXML
-    private Button btn_add;
-    @FXML
-    private Button btn_delete;
-
-    @FXML
     private TextField txt_Search;
 
     @FXML
     private AnchorPane mainAnchor;
-    @FXML
-    private AnchorPane sideBar;
+
     @FXML
     private Pane pane;
+
     private Stage stage;
     private double x, y = 0;
     private final ObservableList<User> userList = FXCollections.observableArrayList();
@@ -67,7 +59,7 @@ public class UserController extends Controller {
         search();
     }
 
-    private void addList() {
+    protected void addList() {
         try {
             userList.clear();
             userList.addAll(UserApi.getUser());
@@ -104,6 +96,7 @@ public class UserController extends Controller {
         try {
             Controller add = newWindow("views/addUser-view.fxml", "Add user",
                     400, 400);
+            add.getStage().setOnCloseRequest(event -> addList());
             add.getStage().show();
         } catch (Exception e) {
             error(e);
@@ -137,7 +130,7 @@ public class UserController extends Controller {
             return;
         }
         User userDeletion = userTable.getSelectionModel().getSelectedItem();
-        if (!confirm("Are you sure, you want to delete the user below : " + userDeletion.getName())) {
+        if (!confirm("Are you sure, you want to delete the user below : " + userDeletion.getName() + " ?")) {
             return;
         }
         try {

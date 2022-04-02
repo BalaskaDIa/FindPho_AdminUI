@@ -11,6 +11,8 @@ module com.example.findpho_adminui {
     requires eu.hansolo.tilesfx;
     requires com.google.gson;
     requires java.sql;
+    requires java.datatransfer;
+    requires java.desktop;
 
     opens com.example.findpho_adminui to javafx.fxml, com.google.gson;
     exports com.example.findpho_adminui;

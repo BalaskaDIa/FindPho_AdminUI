@@ -1,0 +1,18 @@
+
+.chart-legend {
+    -fx-background-color: #183B62;
+    -fx-padding: 5px;
+}
+
+.chart-legend-item{
+    -fx-text-fill: gainsboro;
+}
+
+.chart-legend-item-symbol{
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+}
+
+.default-color0.chart-bar {
+    -fx-bar-fill: #235892;
+}
