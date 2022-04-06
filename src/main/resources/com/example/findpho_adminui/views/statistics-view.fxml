@@ -1,18 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.findpho_adminui.controllers.StatisticsController">
+<AnchorPane prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: gainsboro;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.findpho_adminui.controllers.StatisticsController">
    <children>
+      <Pane layoutX="85.0" layoutY="15.0" prefHeight="146.0" prefWidth="690.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="15.0">
+         <effect>
+            <DropShadow blurType="ONE_PASS_BOX">
+               <color>
+                  <Color red="0.4745098054409027" green="0.4745098054409027" blue="0.4745098054409027" />
+               </color>
+            </DropShadow>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </Pane>
+      <Pane layoutX="265.0" layoutY="223.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="170.0">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.4745098054409027" green="0.4745098054409027" blue="0.4745098054409027" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Pane>
       <HBox alignment="CENTER" layoutX="25.0" layoutY="29.0" prefHeight="120.0" prefWidth="800.0" spacing="30.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
          <children>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #009879;">

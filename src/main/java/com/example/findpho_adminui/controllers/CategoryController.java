@@ -99,6 +99,7 @@ public class CategoryController extends Controller {
         try {
             Controller add = newWindow("views/addCategory-view.fxml", "Add Category",
                     400, 200);
+            add.getStage().setOnHiding(event -> addList());
             add.getStage().show();
         } catch (Exception e) {
             error(e);

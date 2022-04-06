@@ -62,6 +62,12 @@ public class EditPictureController extends Controller{
             alert("Title is required!");
             return;
         }
+
+        if (title.contentEquals("#")) {
+            alert("Some characters are not allowed");
+            return;
+        }
+
         if (description.isEmpty()){
             alert("Description is required!");
             return;

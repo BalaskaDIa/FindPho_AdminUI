@@ -2,8 +2,6 @@ package com.example.findpho_adminui.controllers;
 
 import com.example.findpho_adminui.Controller;
 import com.example.findpho_adminui.api.StatisticsApi;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.chart.*;
 import javafx.scene.control.Label;
@@ -34,9 +32,11 @@ public class StatisticsController extends Controller {
     private BarChart barChart;
 
     public void initialize() throws IOException {
+
         users = StatisticsApi.allUsers();
         photos = StatisticsApi.allPhotos();
         categories = StatisticsApi.allCategories();
+
         january = StatisticsApi.janUpload();
         february = StatisticsApi.febUpload();
         march = StatisticsApi.marchUpload();
@@ -47,6 +47,7 @@ public class StatisticsController extends Controller {
         lbl_User.setText(String.valueOf(users));
         lbl_Photo.setText(String.valueOf(photos));
         lbl_Category.setText(String.valueOf(categories));
+
 
         XYChart.Series<String, Number> series = new XYChart.Series<>();
         series.setName("Photo uploads by months");

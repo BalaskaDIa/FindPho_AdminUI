@@ -63,6 +63,7 @@ public class UserController extends Controller {
         try {
             userList.clear();
             userList.addAll(UserApi.getUser());
+
         }catch (IOException e) {
             error(e);
         }
@@ -96,7 +97,7 @@ public class UserController extends Controller {
         try {
             Controller add = newWindow("views/addUser-view.fxml", "Add user",
                     400, 400);
-            add.getStage().setOnCloseRequest(event -> addList());
+            add.getStage().setOnHiding(event -> addList());
             add.getStage().show();
         } catch (Exception e) {
             error(e);
