@@ -49,19 +49,19 @@
                                     <Font name="Century Gothic Bold" size="18.0" />
                                  </font>
                               </Label>
-                              <TextArea fx:id="txtArea_Image" prefHeight="47.0" prefWidth="337.0" />
+                              <TextArea fx:id="txtArea_Image" editable="false" prefHeight="47.0" prefWidth="337.0" />
                                         <Label text="Title">
                                  <font>
                                     <Font name="Century Gothic Bold" size="18.0" />
                                  </font>
                               </Label>
-                              <TextArea fx:id="txtArea_Title" prefHeight="68.0" prefWidth="337.0" />
+                              <TextArea fx:id="txtArea_Title" editable="false" prefHeight="68.0" prefWidth="337.0" />
                               <Label text="Description">
                                  <font>
                                     <Font name="Century Gothic Bold" size="18.0" />
                                  </font>
                               </Label>
-                              <TextArea fx:id="txtArea_Description" prefHeight="68.0" prefWidth="337.0" />
+                              <TextArea fx:id="txtArea_Description" editable="false" prefHeight="68.0" prefWidth="337.0" />
                            </children>
                         </VBox>
                             </children>
