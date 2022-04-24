@@ -76,7 +76,7 @@ public class LoginController extends Controller {
                 stage = (Stage) mainAnchor.getScene().getWindow();
                 stage.close();
             } else {
-                alert("You do not have sufficient privileges! Log on again with administrator privileges.");
+                alert("You do not have sufficient privileges. ");
             }
         } catch (IOException e) {
             error(e);

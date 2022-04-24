@@ -63,7 +63,7 @@ public class EditPictureController extends Controller{
             return;
         }
 
-        if (title.contentEquals("#")) {
+        if (title.contains("#")) {
             alert("Some characters are not allowed");
             return;
         }
