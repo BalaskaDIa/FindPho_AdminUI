@@ -6,6 +6,7 @@ import com.example.findpho_adminui.api.PictureApi;
 import com.example.findpho_adminui.api.StatisticsApi;
 import com.example.findpho_adminui.classes.Category;
 import com.example.findpho_adminui.classes.Picture;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -61,41 +62,43 @@ public class CategoryController extends Controller {
     private TextField txt_Search;
     @FXML
     private PieChart pieChart;
-    @FXML
-    private Label randomLbl;
 
     public void initialize() throws IOException {
-        flowers = StatisticsApi.categoryFlowers();
-        cars = StatisticsApi.categoryCars();
-        eyes = StatisticsApi.categoryEyes();
-        dogs = StatisticsApi.categoryDogs();
-        food = StatisticsApi.categoryFood();
-        spring = StatisticsApi.categorySpring();
-        nature = StatisticsApi.categoryNature();
-        others = StatisticsApi.categoryOthers();
-        people = StatisticsApi.categoryPeople();
-        winter = StatisticsApi.categoryWinter();
-
+        Platform.runLater(() -> {
+        try {
+            flowers = StatisticsApi.categoryFlowers();
+            cars = StatisticsApi.categoryCars();
+            eyes = StatisticsApi.categoryEyes();
+            dogs = StatisticsApi.categoryDogs();
+            food = StatisticsApi.categoryFood();
+            spring = StatisticsApi.categorySpring();
+            nature = StatisticsApi.categoryNature();
+            others = StatisticsApi.categoryOthers();
+            people = StatisticsApi.categoryPeople();
+            winter = StatisticsApi.categoryWinter();
+            ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
+                    new PieChart.Data("Flowers", flowers),
+                    new PieChart.Data("Cars", cars),
+                    new PieChart.Data("Eyes", eyes),
+                    new PieChart.Data("Dogs", dogs),
+                    new PieChart.Data("Food", food),
+                    new PieChart.Data("Spring", spring),
+                    new PieChart.Data("Nature", nature),
+                    new PieChart.Data("Others", others),
+                    new PieChart.Data("People", people),
+                    new PieChart.Data("Winter", winter)
+            );
+            pieChart.setData(pieChartData);
+            pieChart.setLegendVisible(false);
+            pieChart.setStartAngle(90);
+        } catch (IOException e) {
+            error(e);
+        }
+        });
         categoryIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         categoryNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         addList();
         search();
-
-        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
-                new PieChart.Data("Flowers", flowers),
-                new PieChart.Data("Cars", cars),
-                new PieChart.Data("Eyes", eyes),
-                new PieChart.Data("Dogs", dogs),
-                new PieChart.Data("Food", food),
-                new PieChart.Data("Spring", spring),
-                new PieChart.Data("Nature", nature),
-                new PieChart.Data("Others", others),
-                new PieChart.Data("People", people),
-                new PieChart.Data("Winter", winter)
-        );
-        pieChart.setData(pieChartData);
-        pieChart.setLegendVisible(false);
-        pieChart.setStartAngle(90);
     }
 
     private void addList() {
