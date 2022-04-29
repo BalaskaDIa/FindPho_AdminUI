@@ -16,3 +16,16 @@
 .default-color0.chart-bar {
     -fx-bar-fill: #235892;
 }
+
+.default-color0.chart-pie { -fx-pie-color: #88DEB0; }
+.default-color1.chart-pie { -fx-pie-color: #69C6AF; }
+.default-color2.chart-pie { -fx-pie-color: #4EADAF; }
+.default-color3.chart-pie { -fx-pie-color: #377A98; }
+.default-color4.chart-pie { -fx-pie-color: #235892; }
+.default-color5.chart-pie { -fx-pie-color: #244A80; }
+.default-color6.chart-pie { -fx-pie-color: #183B62; }
+.default-color7.chart-pie { -fx-pie-color: #152069; }
+.default-color8.chart-pie { -fx-pie-color: #140951; }
+.default-color9.chart-pie { -fx-pie-color: #185E55; }
+
+

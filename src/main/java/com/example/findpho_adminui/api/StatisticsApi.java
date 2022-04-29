@@ -107,4 +107,114 @@ public class StatisticsApi extends Controller {
         }
         return Integer.parseInt(json);
     }
+
+    public static int categoryFlowers() throws IOException {
+        Response response = RequestHandler.get(BASE_URL+ "/api/categoryFlowers");
+        String json = response.getContent();
+        Gson jsonConvert = new Gson();
+        if (response.getResponseCode() >= 400){
+            String message = jsonConvert.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        return Integer.parseInt(json);
+    }
+
+    public static int categoryCars() throws IOException {
+        Response response = RequestHandler.get(BASE_URL+ "/api/categoryCars");
+        String json = response.getContent();
+        Gson jsonConvert = new Gson();
+        if (response.getResponseCode() >= 400){
+            String message = jsonConvert.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        return Integer.parseInt(json);
+    }
+
+    public static int categoryEyes() throws IOException {
+        Response response = RequestHandler.get(BASE_URL+ "/api/categoryEyes");
+        String json = response.getContent();
+        Gson jsonConvert = new Gson();
+        if (response.getResponseCode() >= 400){
+            String message = jsonConvert.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        return Integer.parseInt(json);
+    }
+
+    public static int categoryDogs() throws IOException {
+        Response response = RequestHandler.get(BASE_URL+ "/api/categoryDogs");
+        String json = response.getContent();
+        Gson jsonConvert = new Gson();
+        if (response.getResponseCode() >= 400){
+            String message = jsonConvert.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        return Integer.parseInt(json);
+    }
+
+    public static int categoryFood() throws IOException {
+        Response response = RequestHandler.get(BASE_URL+ "/api/categoryFood");
+        String json = response.getContent();
+        Gson jsonConvert = new Gson();
+        if (response.getResponseCode() >= 400){
+            String message = jsonConvert.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        return Integer.parseInt(json);
+    }
+
+    public static int categorySpring() throws IOException {
+        Response response = RequestHandler.get(BASE_URL+ "/api/categorySpring");
+        String json = response.getContent();
+        Gson jsonConvert = new Gson();
+        if (response.getResponseCode() >= 400){
+            String message = jsonConvert.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        return Integer.parseInt(json);
+    }
+
+    public static int categoryNature() throws IOException {
+        Response response = RequestHandler.get(BASE_URL+ "/api/categoryNature");
+        String json = response.getContent();
+        Gson jsonConvert = new Gson();
+        if (response.getResponseCode() >= 400){
+            String message = jsonConvert.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        return Integer.parseInt(json);
+    }
+
+    public static int categoryOthers() throws IOException {
+        Response response = RequestHandler.get(BASE_URL+ "/api/categoryOthers");
+        String json = response.getContent();
+        Gson jsonConvert = new Gson();
+        if (response.getResponseCode() >= 400){
+            String message = jsonConvert.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        return Integer.parseInt(json);
+    }
+
+    public static int categoryPeople() throws IOException {
+        Response response = RequestHandler.get(BASE_URL+ "/api/categoryPeople");
+        String json = response.getContent();
+        Gson jsonConvert = new Gson();
+        if (response.getResponseCode() >= 400){
+            String message = jsonConvert.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        return Integer.parseInt(json);
+    }
+
+    public static int categoryWinter() throws IOException {
+        Response response = RequestHandler.get(BASE_URL+ "/api/categoryWinter");
+        String json = response.getContent();
+        Gson jsonConvert = new Gson();
+        if (response.getResponseCode() >= 400){
+            String message = jsonConvert.fromJson(json, ApiError.class).getMessage();
+            throw new IOException(message);
+        }
+        return Integer.parseInt(json);
+    }
 }
