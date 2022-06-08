@@ -43,32 +43,6 @@ public class EditUserController extends Controller {
     @FXML
     private ToggleSwitch ts_Admin;
 
-
-    @FXML
-    public void dragTab(MouseEvent event) {
-        Stage stage = (Stage)tabPane.getScene().getWindow();
-        stage.setX(event.getScreenX() - x);
-        stage.setY(event.getScreenY() - y);
-    }
-
-    @FXML
-    public void pressTab(MouseEvent event) {
-        x = event.getSceneX();
-        y = event.getSceneY();
-    }
-
-    @FXML
-    public void btn_closeWindowData(ActionEvent actionEvent) {
-        stage = (Stage) mainAnchor.getScene().getWindow();
-        stage.close();
-    }
-
-    @FXML
-    public void btn_closeWindowUpdate(ActionEvent actionEvent) {
-        stage = (Stage) mainAnchor.getScene().getWindow();
-        stage.close();
-    }
-
     public void setUpdateUser(User updateUser) {
         this.updateUser = updateUser;
         setValue();
@@ -81,15 +55,15 @@ public class EditUserController extends Controller {
         String email = txt_Email.getText().trim();
         boolean admin = ts_Admin.isSelected();
 
-        if (name.isEmpty()){
+        if (name.isEmpty()) {
             alert("Name is required!");
             return;
         }
-        if (username.isEmpty()){
+        if (username.isEmpty()) {
             alert("Username is required!");
             return;
         }
-        if (email.isEmpty()){
+        if (email.isEmpty()) {
             alert("Email is required!");
             return;
         }
@@ -105,7 +79,7 @@ public class EditUserController extends Controller {
 
         try {
             User updated = UserApi.putUser(updateUser);
-            if (updated != null){
+            if (updated != null) {
                 alert("Update successful");
                 this.stage.close();
             } else {
@@ -126,5 +100,30 @@ public class EditUserController extends Controller {
         txt_Username.setText(updateUser.getUsername());
         txt_Email.setText(updateUser.getEmail());
         ts_Admin.setSelected(updateUser.isAdmin());
+    }
+
+    @FXML
+    public void dragTab(MouseEvent event) {
+        Stage stage = (Stage) tabPane.getScene().getWindow();
+        stage.setX(event.getScreenX() - x);
+        stage.setY(event.getScreenY() - y);
+    }
+
+    @FXML
+    public void pressTab(MouseEvent event) {
+        x = event.getSceneX();
+        y = event.getSceneY();
+    }
+
+    @FXML
+    public void btn_closeWindowData(ActionEvent actionEvent) {
+        stage = (Stage) mainAnchor.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    public void btn_closeWindowUpdate(ActionEvent actionEvent) {
+        stage = (Stage) mainAnchor.getScene().getWindow();
+        stage.close();
     }
 }

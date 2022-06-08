@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainAnchor" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.findpho_adminui.controllers.EditPictureController">
+    <children>
+        <TabPane fx:id="tabPane" layoutX="93.0" layoutY="74.0" onMouseDragged="#dragTab" onMousePressed="#pressTab" prefHeight="400.0" prefWidth="400.0" stylesheets="@../css/controls.css" tabClosingPolicy="UNAVAILABLE" tabMaxWidth="200.0" tabMinWidth="179.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <tabs>
+                <Tab text="Data">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <Pane prefHeight="33.0" prefWidth="400.0" style="-fx-background-color: #19406B;">
+                                    <children>
+                                        <HBox alignment="TOP_RIGHT" layoutX="308.0" layoutY="-5.0" prefHeight="36.0" prefWidth="85.0">
+                                            <children>
+                                                <Button mnemonicParsing="false" onAction="#btn_closeWindowData" style="-fx-background-color: transparent;">
+                                                    <graphic>
+                                                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@../icons/close.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </Button>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </Pane>
+                                <Pane layoutY="357.0" prefHeight="20.0" prefWidth="400.0" style="-fx-background-color: #19406B;" AnchorPane.bottomAnchor="0.0" />
+                        <VBox layoutX="60.0" layoutY="86.0" prefHeight="296.0" prefWidth="344.0" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <children>
+                                        <Label text="Image">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextArea fx:id="txtArea_Image" editable="false" prefHeight="47.0" prefWidth="337.0" />
+                                        <Label text="Title">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextArea fx:id="txtArea_Title" editable="false" prefHeight="68.0" prefWidth="337.0" />
+                              <Label text="Description">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextArea fx:id="txtArea_Description" editable="false" prefHeight="68.0" prefWidth="337.0" />
+                           </children>
+                        </VBox>
+                            </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding></AnchorPane>
+                    </content>
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icons/picturedata.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Tab>
+                <Tab text="Update">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <Label layoutX="70.0" layoutY="90.0" text="Image">
+                                    <font>
+                                        <Font name="Century Gothic" size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="70.0" layoutY="140.0" text="Title">
+                                    <font>
+                                        <Font name="Century Gothic" size="18.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="txt_Image" layoutX="220.0" layoutY="90.0" stylesheets="@../css/controls.css" />
+                                <TextField fx:id="txt_Title" layoutX="220.0" layoutY="140.0" stylesheets="@../css/controls.css" />
+                                <Button layoutX="100.0" layoutY="299.0" mnemonicParsing="false" onAction="#btn_Save" prefWidth="200.0" stylesheets="@../css/style.css" text="Save" textFill="WHITE">
+                                    <font>
+                                        <Font name="Century Gothic" size="16.0" />
+                                    </font>
+                                </Button>
+                                <Pane layoutX="-6.0" layoutY="449.0" prefHeight="20.0" prefWidth="500.0" style="-fx-background-color: #19406B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                <Separator layoutX="25.0" layoutY="278.0" prefWidth="350.0" />
+                                <Pane layoutX="5.0" layoutY="5.0" prefHeight="33.0" prefWidth="400.0" style="-fx-background-color: #19406B;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <Label layoutX="134.0" text="Edit picture" textFill="WHITE">
+                                            <font>
+                                                <Font name="Century Gothic" size="24.0" />
+                                            </font>
+                                        </Label>
+                                        <HBox alignment="TOP_RIGHT" layoutX="308.0" layoutY="-5.0" prefHeight="36.0" prefWidth="85.0">
+                                            <children>
+                                                <Button mnemonicParsing="false" onAction="#btn_closeWindowUpdate" style="-fx-background-color: transparent;">
+                                                    <graphic>
+                                                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@../icons/close.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </Button>
+                                            </children>
+                                        </HBox>
+                                    </children></Pane>
+                        <Label layoutX="70.0" layoutY="190.0" text="Description">
+                           <font>
+                              <Font name="Century Gothic" size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txt_Description" layoutX="220.0" layoutY="190.0" stylesheets="@../css/controls.css" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icons/editpicture.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>

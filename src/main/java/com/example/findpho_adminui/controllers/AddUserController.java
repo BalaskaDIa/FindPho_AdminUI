@@ -34,19 +34,6 @@ public class AddUserController extends Controller {
     private double x, y = 0;
 
     @FXML
-    public void dragPane(MouseEvent event) {
-        Stage stage = (Stage) pane.getScene().getWindow();
-        stage.setX(event.getScreenX() - x);
-        stage.setY(event.getScreenY() - y);
-    }
-
-    @FXML
-    public void pressPane(MouseEvent event) {
-        x = event.getSceneX();
-        y = event.getSceneY();
-    }
-
-    @FXML
     public void btnCancel(ActionEvent actionEvent) {
         stage = (Stage) mainAnchor.getScene().getWindow();
         stage.close();
@@ -89,5 +76,18 @@ public class AddUserController extends Controller {
         } catch (Exception e) {
             error(e);
         }
+    }
+
+    @FXML
+    public void dragPane(MouseEvent event) {
+        Stage stage = (Stage) pane.getScene().getWindow();
+        stage.setX(event.getScreenX() - x);
+        stage.setY(event.getScreenY() - y);
+    }
+
+    @FXML
+    public void pressPane(MouseEvent event) {
+        x = event.getSceneX();
+        y = event.getSceneY();
     }
 }

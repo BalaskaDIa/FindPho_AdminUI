@@ -24,13 +24,16 @@ import java.io.IOException;
 
 public class PictureController extends Controller {
 
-    @javafx.fxml.FXML
+    @FXML
     private TextField txt_Search;
-    @javafx.fxml.FXML
+
+    @FXML
     private Button btn_edit;
-    @javafx.fxml.FXML
+
+    @FXML
     private AnchorPane mainAnchor;
-    @javafx.fxml.FXML
+
+    @FXML
     private AnchorPane sideBar;
 
     @FXML
@@ -39,19 +42,19 @@ public class PictureController extends Controller {
     private double x, y = 0;
 
     @FXML
-    private TableColumn <Picture,Integer> idCol;
+    private TableColumn<Picture, Integer> idCol;
     @FXML
-    private TableColumn <Picture,Integer> userIdCol;
+    private TableColumn<Picture, Integer> userIdCol;
     @FXML
-    private TableView <Picture> pictureTable;
+    private TableView<Picture> pictureTable;
     @FXML
-    private TableColumn <Picture,String> imageCol;
+    private TableColumn<Picture, String> imageCol;
     @FXML
-    private TableColumn <Picture,String> titleCol;
+    private TableColumn<Picture, String> titleCol;
     @FXML
-    private TableColumn <Picture,String> descriptionCol;
+    private TableColumn<Picture, String> descriptionCol;
     @FXML
-    private TableColumn <Picture,String> categoryCol;
+    private TableColumn<Picture, String> categoryCol;
 
     private final ObservableList<Picture> pictureList = FXCollections.observableArrayList();
 
@@ -70,28 +73,9 @@ public class PictureController extends Controller {
         try {
             pictureList.clear();
             pictureList.addAll(PictureApi.getPicture());
-        }catch (IOException e) {
+        } catch (IOException e) {
             error(e);
         }
-    }
-
-    @FXML
-    public void dragPane(MouseEvent event) {
-        Stage stage = (Stage) pane.getScene().getWindow();
-        stage.setX(event.getScreenX() - x);
-        stage.setY(event.getScreenY() - y);
-    }
-
-    @FXML
-    public void pressPane(MouseEvent event) {
-        x = event.getSceneX();
-        y = event.getSceneY();
-    }
-
-    @FXML
-    public void btn_minWindow(ActionEvent actionEvent) {
-        stage = (Stage) mainAnchor.getScene().getWindow();
-        this.minimizeWindow(stage);
     }
 
     @FXML
@@ -112,12 +96,6 @@ public class PictureController extends Controller {
         } catch (IOException e) {
             error(e);
         }
-    }
-
-    @FXML
-    public void btn_maxWindow(ActionEvent actionEvent) {
-        stage = (Stage) mainAnchor.getScene().getWindow();
-        this.maximizeWindowToggle(stage);
     }
 
     @FXML
@@ -175,6 +153,31 @@ public class PictureController extends Controller {
         } catch (IOException e) {
             error(e);
         }
+    }
+
+    @FXML
+    public void dragPane(MouseEvent event) {
+        Stage stage = (Stage) pane.getScene().getWindow();
+        stage.setX(event.getScreenX() - x);
+        stage.setY(event.getScreenY() - y);
+    }
+
+    @FXML
+    public void pressPane(MouseEvent event) {
+        x = event.getSceneX();
+        y = event.getSceneY();
+    }
+
+    @FXML
+    public void btn_minWindow(ActionEvent actionEvent) {
+        stage = (Stage) mainAnchor.getScene().getWindow();
+        this.minimizeWindow(stage);
+    }
+
+    @FXML
+    public void btn_maxWindow(ActionEvent actionEvent) {
+        stage = (Stage) mainAnchor.getScene().getWindow();
+        this.maximizeWindowToggle(stage);
     }
 
     @FXML

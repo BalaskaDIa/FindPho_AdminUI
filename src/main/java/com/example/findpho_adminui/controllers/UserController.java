@@ -26,15 +26,15 @@ public class UserController extends Controller {
     @FXML
     private TableView<User> userTable;
     @FXML
-    private TableColumn <User,Integer> idCol;
+    private TableColumn<User, Integer> idCol;
     @FXML
-    private TableColumn <User,String> nameCol;
+    private TableColumn<User, String> nameCol;
     @FXML
-    private TableColumn <User,String> usernameCol;
+    private TableColumn<User, String> usernameCol;
     @FXML
-    private TableColumn <User,String> emailCol;
+    private TableColumn<User, String> emailCol;
     @FXML
-    private TableColumn <User,Boolean> adminCol;
+    private TableColumn<User, Boolean> adminCol;
 
     @FXML
     private TextField txt_Search;
@@ -64,7 +64,7 @@ public class UserController extends Controller {
             userList.clear();
             userList.addAll(UserApi.getUser());
 
-        }catch (IOException e) {
+        } catch (IOException e) {
             error(e);
         }
     }
@@ -144,6 +144,32 @@ public class UserController extends Controller {
     }
 
     @FXML
+    public void btn_back(ActionEvent actionEvent) {
+        try {
+            Controller add = newWindow("views/main-view.fxml", "FindPho",
+                    900, 650);
+            add.getStage().show();
+        } catch (Exception e) {
+            error(e);
+        }
+        stage = (Stage) mainAnchor.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    public void dragPane(MouseEvent event) {
+        Stage stage = (Stage) pane.getScene().getWindow();
+        stage.setX(event.getScreenX() - x);
+        stage.setY(event.getScreenY() - y);
+    }
+
+    @FXML
+    public void pressPane(MouseEvent event) {
+        x = event.getSceneX();
+        y = event.getSceneY();
+    }
+
+    @FXML
     public void btn_minWindow(ActionEvent actionEvent) {
         stage = (Stage) mainAnchor.getScene().getWindow();
         this.minimizeWindow(stage);
@@ -161,31 +187,5 @@ public class UserController extends Controller {
     public void btn_maxWindow(ActionEvent actionEvent) {
         stage = (Stage) mainAnchor.getScene().getWindow();
         this.maximizeWindowToggle(stage);
-    }
-
-    @FXML
-    public void dragPane(MouseEvent event) {
-        Stage stage = (Stage)pane.getScene().getWindow();
-        stage.setX(event.getScreenX() - x);
-        stage.setY(event.getScreenY() - y);
-    }
-
-    @FXML
-    public void pressPane(MouseEvent event) {
-        x = event.getSceneX();
-        y = event.getSceneY();
-    }
-
-    @FXML
-    public void btn_back(ActionEvent actionEvent) {
-        try {
-            Controller add = newWindow("views/main-view.fxml", "FindPho",
-                    900, 650);
-            add.getStage().show();
-        } catch (Exception e) {
-            error(e);
-        }
-        stage = (Stage) mainAnchor.getScene().getWindow();
-        stage.close();
     }
 }

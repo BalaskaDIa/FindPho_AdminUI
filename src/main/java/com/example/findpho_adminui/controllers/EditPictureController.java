@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class EditPictureController extends Controller{
+public class EditPictureController extends Controller {
     @FXML
     private AnchorPane mainAnchor;
     @FXML
@@ -37,12 +37,6 @@ public class EditPictureController extends Controller{
     @FXML
     private TextField txt_Title;
 
-    @FXML
-    public void btn_closeWindowData(ActionEvent actionEvent) {
-        stage = (Stage) mainAnchor.getScene().getWindow();
-        stage.close();
-    }
-
     public void setUpdatePicture(Picture updatePicture) {
         this.updatePicture = updatePicture;
         setValue();
@@ -54,11 +48,11 @@ public class EditPictureController extends Controller{
         String title = txt_Title.getText().trim();
         String description = txt_Description.getText().trim();
 
-        if (image.isEmpty()){
+        if (image.isEmpty()) {
             alert("Image is required!");
             return;
         }
-        if (title.isEmpty()){
+        if (title.isEmpty()) {
             alert("Title is required!");
             return;
         }
@@ -68,7 +62,7 @@ public class EditPictureController extends Controller{
             return;
         }
 
-        if (description.isEmpty()){
+        if (description.isEmpty()) {
             alert("Description is required!");
             return;
         }
@@ -79,7 +73,7 @@ public class EditPictureController extends Controller{
 
         try {
             Picture updated = PictureApi.putPicture(updatePicture);
-            if (updated != null){
+            if (updated != null) {
                 alert("Update successful");
                 this.stage.close();
             } else {
@@ -101,14 +95,8 @@ public class EditPictureController extends Controller{
     }
 
     @FXML
-    public void btn_closeWindowUpdate(ActionEvent actionEvent) {
-        stage = (Stage) mainAnchor.getScene().getWindow();
-        stage.close();
-    }
-
-    @FXML
     public void dragTab(MouseEvent event) {
-        Stage stage = (Stage)tabPane.getScene().getWindow();
+        Stage stage = (Stage) tabPane.getScene().getWindow();
         stage.setX(event.getScreenX() - x);
         stage.setY(event.getScreenY() - y);
     }
@@ -117,5 +105,17 @@ public class EditPictureController extends Controller{
     public void pressTab(MouseEvent event) {
         x = event.getSceneX();
         y = event.getSceneY();
+    }
+
+    @FXML
+    public void btn_closeWindowUpdate(ActionEvent actionEvent) {
+        stage = (Stage) mainAnchor.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    public void btn_closeWindowData(ActionEvent actionEvent) {
+        stage = (Stage) mainAnchor.getScene().getWindow();
+        stage.close();
     }
 }

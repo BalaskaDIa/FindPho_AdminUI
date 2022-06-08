@@ -31,27 +31,29 @@ public class Controller {
         this.stage = stage;
     }
 
-    protected void alert(String uzenet) {
+    private static Image icon = new Image(Controller.class.getResourceAsStream("/com/example/findpho_adminui/img/findpho.jpg"));
+
+    protected void alert(String message) {
         Alert alert = new Alert(Alert.AlertType.NONE);
-        alert.setContentText(uzenet);
+        alert.setContentText(message);
         alert.getButtonTypes().add(ButtonType.OK);
         dialogPane = alert.getDialogPane();
         dialogPane.getStylesheets().add(getClass().getResource("/com/example/findpho_adminui/css/alert.css").toExternalForm());
         dialogPane.getStyleClass().add("dialogPane");
         Stage stage = (Stage) dialogPane.getScene().getWindow();
-        stage.getIcons().add(new Image(this.getClass().getResource("/com/example/findpho_adminui/icons/findpho.jpg").toExternalForm()));
+        stage.getIcons().add(icon);
         alert.show();
     }
 
-    protected boolean confirm(String uzenet){
+    protected boolean confirm(String message) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Are you sure?");
-        alert.setHeaderText(uzenet);
+        alert.setHeaderText(message);
         dialogPane = alert.getDialogPane();
         dialogPane.getStylesheets().add(getClass().getResource("/com/example/findpho_adminui/css/alert.css").toExternalForm());
         dialogPane.getStyleClass().add("dialogPane");
         Stage stage = (Stage) dialogPane.getScene().getWindow();
-        stage.getIcons().add(new Image(this.getClass().getResource("/com/example/findpho_adminui/icons/findpho.jpg").toExternalForm()));
+        stage.getIcons().add(icon);
         Optional<ButtonType> result = alert.showAndWait();
         return result.get() == ButtonType.OK;
     }
@@ -66,7 +68,7 @@ public class Controller {
         dialogPane.getStylesheets().add(Controller.class.getResource("/com/example/findpho_adminui/css/alert.css").toExternalForm());
         dialogPane.getStyleClass().add("dialogPane");
         Stage stage = (Stage) dialogPane.getScene().getWindow();
-        stage.getIcons().add(new Image(Controller.class.getResource("/com/example/findpho_adminui/icons/findpho.jpg").toExternalForm()));
+        stage.getIcons().add(icon);
         Timer alertTimer = new Timer();
         alertTimer.schedule(new TimerTask() {
             @Override

@@ -1,0 +1,35 @@
+#pane
+{
+    -fx-background-color: #19406B;
+}
+
+#sideBar {
+    -fx-background-color: #235892;
+}
+
+.button
+{
+    -fx-background-color : #19406B;
+    -fx-background-radius: 0;
+}
+
+.button:hover
+{
+    -fx-background-color : #235892;
+}
+
+.button:pressed
+{
+    -fx-background-color : #73A3EF;
+}
+
+.text-field
+{
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-border-width: 0px 25px 2px 0px;
+    -fx-border-color: #19406B;
+    -fx-text-fill: black;
+    -fx-font-family: Tahoma;
+}

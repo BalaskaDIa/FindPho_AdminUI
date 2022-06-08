@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainAnchor" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.findpho_adminui.controllers.EditCategoryController">
+    <children>
+      <Pane fx:id="pane" layoutX="8.0" layoutY="6.0" onMouseDragged="#dragPane" onMousePressed="#pressPane" prefHeight="33.0" prefWidth="400.0" style="-fx-background-color: #19406B;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="122.0" layoutY="1.0" text="Edit category" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="24.0" />
+               </font>
+            </Label>
+            <HBox alignment="TOP_RIGHT" layoutX="307.0" layoutY="1.0" prefHeight="36.0" prefWidth="85.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#btn_closeCategoryWindow" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/close.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+      <Pane layoutX="4.0" layoutY="459.0" prefHeight="20.0" prefWidth="500.0" style="-fx-background-color: #19406B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <TextField fx:id="txt_Name" layoutX="220.0" layoutY="72.0" stylesheets="@../css/controls.css" />
+      <Label fx:id="lbl_Name" layoutX="79.0" layoutY="73.0" text="Name">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="100.0" layoutY="136.0" mnemonicParsing="false" onAction="#btn_SaveCategory" prefWidth="200.0" stylesheets="@../css/style.css" text="Save" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic" size="16.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>

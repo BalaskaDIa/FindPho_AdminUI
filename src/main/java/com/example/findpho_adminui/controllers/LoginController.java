@@ -12,6 +12,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
 import java.awt.*;
 
 import java.io.IOException;
@@ -34,42 +35,15 @@ public class LoginController extends Controller {
     private double x, y = 0;
 
     @FXML
-    public void btn_minWindow(ActionEvent actionEvent) {
-        stage = (Stage) mainAnchor.getScene().getWindow();
-        this.minimizeWindow(stage);
-    }
-
-    @FXML
-    public void btn_closeWindow(ActionEvent actionEvent) {
-        if (!(confirm("Do you really want to leave?"))) {
-            return;
-        }
-        System.exit(0);
-    }
-
-    @FXML
-    public void dragPane(MouseEvent event) {
-        Stage stage = (Stage) pane.getScene().getWindow();
-        stage.setX(event.getScreenX() - x);
-        stage.setY(event.getScreenY() - y);
-    }
-
-    @FXML
-    public void pressPane(MouseEvent event) {
-        x = event.getSceneX();
-        y = event.getSceneY();
-    }
-
-    @FXML
     public void btn_Login(ActionEvent actionEvent) {
         String username = txt_Username.getText();
         String password = txt_Password.getText();
 
-        Login login = new Login(username,password);
+        Login login = new Login(username, password);
         try {
             Token token = LoginApi.postLogin(login);
             User data = LoginApi.getLoginData(token.getToken());
-            if(data.isAdmin()) {
+            if (data.isAdmin()) {
                 Controller add = newWindow("views/main-view.fxml", "FindPho",
                         900, 650);
                 add.getStage().show();
@@ -86,5 +60,32 @@ public class LoginController extends Controller {
     @FXML
     public void goToRegistration(ActionEvent event) throws URISyntaxException, IOException {
         Desktop.getDesktop().browse(new URI("http://localhost:8000/register"));
+    }
+
+    @FXML
+    public void dragPane(MouseEvent event) {
+        Stage stage = (Stage) pane.getScene().getWindow();
+        stage.setX(event.getScreenX() - x);
+        stage.setY(event.getScreenY() - y);
+    }
+
+    @FXML
+    public void pressPane(MouseEvent event) {
+        x = event.getSceneX();
+        y = event.getSceneY();
+    }
+
+    @FXML
+    public void btn_minWindow(ActionEvent actionEvent) {
+        stage = (Stage) mainAnchor.getScene().getWindow();
+        this.minimizeWindow(stage);
+    }
+
+    @FXML
+    public void btn_closeWindow(ActionEvent actionEvent) {
+        if (!(confirm("Do you really want to leave?"))) {
+            return;
+        }
+        System.exit(0);
     }
 }

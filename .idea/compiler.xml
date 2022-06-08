@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="FindPho_AdminUI" target="17" />
+      <module name="FindPho_AdminUI" target="16" />
     </bytecodeTargetLevel>
   </component>
 </project>

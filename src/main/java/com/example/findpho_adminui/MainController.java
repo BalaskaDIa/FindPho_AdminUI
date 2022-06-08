@@ -42,6 +42,26 @@ public class MainController extends Controller {
     }
 
     @FXML
+    public void btn_Logout(ActionEvent actionEvent) throws IOException {
+        if (confirm("You will be returned to the login screen.")) {
+            try {
+                Controller add = newWindow("views/login-view.fxml", "Login",
+                        600, 500);
+                add.getStage().show();
+            } catch (Exception e) {
+                error(e);
+            }
+            stage = (Stage) mainAnchor.getScene().getWindow();
+            stage.close();
+        }
+    }
+
+    @FXML
+    public void btn_Statistics(ActionEvent actionEvent) throws IOException {
+        changeStage("views/statistics-view.fxml");
+    }
+
+    @FXML
     public void dragPane(MouseEvent event) {
         Stage stage = (Stage) pane.getScene().getWindow();
         stage.setX(event.getScreenX() - x);
@@ -72,25 +92,5 @@ public class MainController extends Controller {
             return;
         }
         System.exit(0);
-    }
-
-    @FXML
-    public void btn_Logout(ActionEvent actionEvent) throws IOException {
-        if (confirm("You will be returned to the login screen.")) {
-            try {
-                Controller add = newWindow("views/login-view.fxml", "Login",
-                        600, 500);
-                add.getStage().show();
-            } catch (Exception e) {
-                error(e);
-            }
-            stage = (Stage) mainAnchor.getScene().getWindow();
-            stage.close();
-        }
-    }
-
-    @FXML
-    public void btn_Statistics(ActionEvent actionEvent) throws IOException {
-        changeStage("views/statistics-view.fxml");
     }
 }

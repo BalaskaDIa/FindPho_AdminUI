@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class HomeController extends Controller{
+public class HomeController extends Controller {
 
     @FXML
     private AnchorPane contentHome;

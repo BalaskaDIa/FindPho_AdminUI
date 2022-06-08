@@ -31,19 +31,6 @@ public class EditCategoryController extends Controller {
     private Pane pane;
 
     @FXML
-    public void dragPane(MouseEvent event) {
-        Stage stage = (Stage) pane.getScene().getWindow();
-        stage.setX(event.getScreenX() - x);
-        stage.setY(event.getScreenY() - y);
-    }
-
-    @FXML
-    public void pressPane(MouseEvent event) {
-        x = event.getSceneX();
-        y = event.getSceneY();
-    }
-
-    @FXML
     public void btn_closeCategoryWindow(ActionEvent actionEvent) {
         stage = (Stage) mainAnchor.getScene().getWindow();
         stage.close();
@@ -58,7 +45,7 @@ public class EditCategoryController extends Controller {
     public void btn_SaveCategory(ActionEvent actionEvent) {
         String name = txt_Name.getText().trim();
 
-        if (name.isEmpty()){
+        if (name.isEmpty()) {
             alert("Name is required!");
             return;
         }
@@ -67,7 +54,7 @@ public class EditCategoryController extends Controller {
 
         try {
             Category updated = CategoryApi.putCategory(updateCategory);
-            if (updated != null){
+            if (updated != null) {
                 alert("Update successful");
                 this.stage.close();
             } else {
@@ -80,5 +67,18 @@ public class EditCategoryController extends Controller {
 
     private void setValue() {
         txt_Name.setText(updateCategory.getName());
+    }
+
+    @FXML
+    public void dragPane(MouseEvent event) {
+        Stage stage = (Stage) pane.getScene().getWindow();
+        stage.setX(event.getScreenX() - x);
+        stage.setY(event.getScreenY() - y);
+    }
+
+    @FXML
+    public void pressPane(MouseEvent event) {
+        x = event.getSceneX();
+        y = event.getSceneY();
     }
 }

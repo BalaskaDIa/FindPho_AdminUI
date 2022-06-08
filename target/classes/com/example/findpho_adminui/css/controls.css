@@ -1,0 +1,65 @@
+.text-field
+{
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-border-width: 1px 1px 1px 1px;
+    -fx-border-color: #235892;
+    -fx-background-color: #19406B;
+    -fx-text-fill: white;
+    -fx-font-family: Tahoma;
+}
+
+.text-area
+{
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+    -fx-border-width: 0px 5px 0px 0px;
+    -fx-border-color: #235892;
+    -fx-background-color: #19406B;
+    -fx-text-fill: black;
+    -fx-font-family: Tahoma;
+}
+
+.text-area .scroll-bar:horizontal .thumb {
+    -fx-background-color: #F3F3F3;
+}
+
+.text-area .scroll-bar:vertical,
+.text-area .scroll-bar:vertical .track,
+.text-area .scroll-bar:vertical .track-background,
+.text-area .scroll-bar:horizontal,
+.text-area .scroll-bar:horizontal .track,
+.text-area .scroll-bar:horizontal .track-background {
+    -fx-background-color: transparent;
+}
+.text-area .scroll-bar .increment-button,
+.text-area .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 2;
+}
+
+.toggle-switch {
+    -thumb-move-animation-time: 100;
+    -toggle-display: left;
+}
+
+.toggle-switch:selected .thumb-area {
+    -fx-background-color: #19406B;
+}
+
+.tab-pane > .tab-header-area > .tab-header-background {
+    -fx-background-color: #183B62;
+}
+
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-color: transparent;
+}
+
+.tab {
+    -fx-background-color: #19406B;
+}
+
+.tab-label {
+    -fx-text-fill: white;
+    -fx-font-family: Tahoma;
+}

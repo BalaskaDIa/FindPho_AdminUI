@@ -29,6 +29,34 @@ public class AddCategoryController extends Controller {
     private Pane pane;
 
     @FXML
+    public void btn_closeCategoryWindow(ActionEvent actionEvent) {
+        stage = (Stage) mainAnchor.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    public void btn_SaveCategory(ActionEvent actionEvent) {
+        String name = txt_Name.getText().trim();
+
+        if (name.isEmpty()) {
+            alert("Name is required!");
+            return;
+        }
+
+        try {
+            Category newCategory = new Category(0, name);
+            Category created = CategoryApi.postCategory(newCategory);
+            if (created != null) {
+                alert("Creation successful");
+            } else {
+                alert("Creation failed");
+            }
+        } catch (Exception e) {
+            error(e);
+        }
+    }
+
+    @FXML
     public void dragPane(MouseEvent event) {
         Stage stage = (Stage) pane.getScene().getWindow();
         stage.setX(event.getScreenX() - x);
@@ -39,33 +67,5 @@ public class AddCategoryController extends Controller {
     public void pressPane(MouseEvent event) {
         x = event.getSceneX();
         y = event.getSceneY();
-    }
-
-    @FXML
-    public void btn_closeCategoryWindow(ActionEvent actionEvent) {
-        stage = (Stage) mainAnchor.getScene().getWindow();
-        stage.close();
-    }
-
-    @FXML
-    public void btn_SaveCategory(ActionEvent actionEvent) {
-        String name = txt_Name.getText().trim();
-
-        if (name.isEmpty()){
-            alert("Name is required!");
-            return;
-        }
-
-        try {
-            Category newCategory = new Category(0, name);
-            Category created = CategoryApi.postCategory(newCategory);
-            if (created != null){
-                alert("Creation successful");
-            } else {
-                alert("Creation failed");
-            }
-        } catch (Exception e) {
-            error(e);
-        }
     }
 }

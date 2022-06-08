@@ -31,19 +31,19 @@ import java.io.IOException;
 public class CategoryController extends Controller {
 
     @FXML
-    private TableColumn <Category,String> categoryNameCol;
+    private TableColumn<Category, String> categoryNameCol;
     @FXML
     private AnchorPane mainAnchor;
     @FXML
-    private TableColumn <Category,Integer> categoryIdCol;
+    private TableColumn<Category, Integer> categoryIdCol;
     @FXML
     private AnchorPane sideBar;
     @FXML
     private Pane pane;
     @FXML
-    private TableView  <Category> categoryTable;
+    private TableView<Category> categoryTable;
 
-    private double x,y = 0;
+    private double x, y = 0;
 
     private int flowers;
     private int cars;
@@ -65,35 +65,35 @@ public class CategoryController extends Controller {
 
     public void initialize() throws IOException {
         Platform.runLater(() -> {
-        try {
-            flowers = StatisticsApi.categoryFlowers();
-            cars = StatisticsApi.categoryCars();
-            eyes = StatisticsApi.categoryEyes();
-            dogs = StatisticsApi.categoryDogs();
-            food = StatisticsApi.categoryFood();
-            spring = StatisticsApi.categorySpring();
-            nature = StatisticsApi.categoryNature();
-            others = StatisticsApi.categoryOthers();
-            people = StatisticsApi.categoryPeople();
-            winter = StatisticsApi.categoryWinter();
-            ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
-                    new PieChart.Data("Flowers", flowers),
-                    new PieChart.Data("Cars", cars),
-                    new PieChart.Data("Eyes", eyes),
-                    new PieChart.Data("Dogs", dogs),
-                    new PieChart.Data("Food", food),
-                    new PieChart.Data("Spring", spring),
-                    new PieChart.Data("Nature", nature),
-                    new PieChart.Data("Others", others),
-                    new PieChart.Data("People", people),
-                    new PieChart.Data("Winter", winter)
-            );
-            pieChart.setData(pieChartData);
-            pieChart.setLegendVisible(false);
-            pieChart.setStartAngle(90);
-        } catch (IOException e) {
-            error(e);
-        }
+            try {
+                flowers = StatisticsApi.categoryFlowers();
+                cars = StatisticsApi.categoryCars();
+                eyes = StatisticsApi.categoryEyes();
+                dogs = StatisticsApi.categoryDogs();
+                food = StatisticsApi.categoryFood();
+                spring = StatisticsApi.categorySpring();
+                nature = StatisticsApi.categoryNature();
+                others = StatisticsApi.categoryOthers();
+                people = StatisticsApi.categoryPeople();
+                winter = StatisticsApi.categoryWinter();
+                ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
+                        new PieChart.Data("Flowers", flowers),
+                        new PieChart.Data("Cars", cars),
+                        new PieChart.Data("Eyes", eyes),
+                        new PieChart.Data("Dogs", dogs),
+                        new PieChart.Data("Food", food),
+                        new PieChart.Data("Spring", spring),
+                        new PieChart.Data("Nature", nature),
+                        new PieChart.Data("Others", others),
+                        new PieChart.Data("People", people),
+                        new PieChart.Data("Winter", winter)
+                );
+                pieChart.setData(pieChartData);
+                pieChart.setLegendVisible(false);
+                pieChart.setStartAngle(90);
+            } catch (IOException e) {
+                error(e);
+            }
         });
         categoryIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         categoryNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -105,22 +105,9 @@ public class CategoryController extends Controller {
         try {
             categoryList.clear();
             categoryList.addAll(CategoryApi.getCategory());
-        }catch (IOException e) {
+        } catch (IOException e) {
             error(e);
         }
-    }
-
-    @FXML
-    public void dragPane(MouseEvent event) {
-        Stage stage = (Stage) pane.getScene().getWindow();
-        stage.setX(event.getScreenX() - x);
-        stage.setY(event.getScreenY() - y);
-    }
-
-    @FXML
-    public void pressPane(MouseEvent event) {
-        x = event.getSceneX();
-        y = event.getSceneY();
     }
 
     private void search() {
@@ -185,7 +172,7 @@ public class CategoryController extends Controller {
             return;
         }
         Category categoryDeletion = categoryTable.getSelectionModel().getSelectedItem();
-        if (!confirm("Are you sure you want to delete the below category: " + categoryDeletion.getName() + " ?") ) {
+        if (!confirm("Are you sure you want to delete the below category: " + categoryDeletion.getName() + " ?")) {
             return;
         }
         try {
@@ -195,6 +182,32 @@ public class CategoryController extends Controller {
         } catch (IOException e) {
             error(e);
         }
+    }
+
+    @FXML
+    public void btn_back(ActionEvent actionEvent) {
+        try {
+            Controller add = newWindow("views/main-view.fxml", "FindPho",
+                    900, 650);
+            add.getStage().show();
+        } catch (Exception e) {
+            error(e);
+        }
+        stage = (Stage) mainAnchor.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    public void dragPane(MouseEvent event) {
+        Stage stage = (Stage) pane.getScene().getWindow();
+        stage.setX(event.getScreenX() - x);
+        stage.setY(event.getScreenY() - y);
+    }
+
+    @FXML
+    public void pressPane(MouseEvent event) {
+        x = event.getSceneX();
+        y = event.getSceneY();
     }
 
     @FXML
@@ -209,20 +222,6 @@ public class CategoryController extends Controller {
             return;
         }
         System.exit(0);
-    }
-
-
-    @FXML
-    public void btn_back(ActionEvent actionEvent) {
-        try {
-            Controller add = newWindow("views/main-view.fxml", "FindPho",
-                    900, 650);
-            add.getStage().show();
-        } catch (Exception e) {
-            error(e);
-        }
-        stage = (Stage) mainAnchor.getScene().getWindow();
-        stage.close();
     }
 
     @FXML
